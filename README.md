@@ -37,6 +37,48 @@ and openly debated**:
 
 ---
 
+## What exists today on agentbox.id
+
+The product itself is deliberately narrow at this stage:
+
+- **One verified user → one Agent mailbox.** Each Agent is bound to a
+  single human owner.
+- **Standard IMAP / SMTP.** No bespoke wire protocol — Agents speak the
+  email the rest of the internet already speaks.
+- **Inbound only from the bound human mailbox.** The Agent receives mail
+  only from its owner, not from arbitrary senders.
+- **Outbound to external recipients.** The Agent can send mail to anyone,
+  on its owner's behalf.
+- **Auto-cleanup after read.** The mailbox is not an archive.
+- **Intentionally narrow scope.** Multi-user routing, public inbound,
+  retention, threading — all deliberately out of scope today.
+
+This is the surface against which the skills and protocols in this repo
+are tested.
+
+---
+
+## Product layer vs open layer
+
+There are two layers, and they serve different purposes:
+
+- **Product layer — `agentbox.id`** is the running, closed-source service.
+  It carries traffic, holds the mailbox, runs cleanup, and meets the
+  operational constraints of real users.
+- **Open layer — this repository** publishes the *contracts* distilled
+  from that running product: skills, protocols, examples, essays.
+  The runtime is closed; the abstractions are open.
+
+The two layers do not mirror each other in real time. Product progress
+moves faster than this repo. New behaviors land in `agentbox.id` first;
+only after they have proven stable and worth reusing do they show up
+here — as a skill, a protocol, or an essay.
+
+In short: we don't open-source the runtime. We open-source what the
+runtime taught us.
+
+---
+
 ## Why this exists
 
 The Agent ecosystem today is missing something specific.
@@ -121,6 +163,10 @@ We expect this to change. We are not in a hurry to force it.
 **Early stage. Slow-updating.**
 
 This is a thinking-and-building repository, not a product roadmap.
+Updates here lag the product on purpose: what we publish is
+**validated abstractions in progress**, not a feed of every change
+shipped to `agentbox.id`.
+
 Issues and discussions are welcome; expect replies in days, not hours.
 
 If you want to use a skill or protocol from here in something serious,

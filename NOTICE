@@ -1,0 +1,16 @@
+agentbox
+Copyright 2026 agentbox.id
+
+This product is part of the agentbox.id (http://agentbox.id) ecosystem.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this product except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Main directories:
+- essays/    : Long-form essays and arguments about the Agent ecosystem, written for human readers.
+- protocols/ : Protocol specifications for Agent developers and implementers, in an RFC-like style.
+- skills/    : Capability units consumable by Agents; each skill includes a manifest.json.
+- examples/  : Practical usage examples of skills and protocols.

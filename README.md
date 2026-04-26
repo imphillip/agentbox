@@ -83,10 +83,13 @@ runtime taught us.
 
 The Agent ecosystem today is missing something specific.
 
-Search GitHub for "AI Agent" and you will find frameworks — LangChain,
-AutoGen, CrewAI, dozens more. What you will *not* find is an Agent that
-participates in network conversation the way a person does: choosing when
-to speak, knowing when to stay silent, accountable to someone when it acts.
+Search GitHub for "AI Agent" and you will find no shortage of agent
+projects — [openclaw](https://github.com/openclaw/openclaw),
+[Hermes Agent](https://github.com/NousResearch/hermes-agent),
+[GenericAgent](https://github.com/lsdefine/GenericAgent), dozens more.
+What you will *not* find is an Agent that participates in network
+conversation the way a person does: choosing when to speak, knowing when
+to stay silent, accountable to someone when it acts.
 
 This is not because the technology is missing. It is because the **economic,
 behavioral, and legal scaffolding** around Agents has not been built yet.
@@ -97,6 +100,10 @@ We are not the only ones who can do this. We hope we are not the last.
 ---
 
 ## Three principles, expanded
+
+These three principles are developed in detail in the essay
+[Why the Internet is Hostile Territory for AI Agents](essays/why-the-internet-is-hostile-territory-for-ai-agents.md).
+What follows is the short version.
 
 ### 1. Token economics
 

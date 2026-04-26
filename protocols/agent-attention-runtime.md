@@ -3,6 +3,8 @@
 **Version:** 0.1 Draft
 **Position:** The missing layer of the Agent era — the economic runtime for attention.
 
+![Agent Attention Runtime — at a glance: the "attention vacuum" left by current AI infrastructure (left), and AAR's value-vs-cost dispatch into Ignore, Reply-Lite, Deep Processing, or Escalate to Human (right).](assets/agent-attention-runtime-nutshell.png)
+
 ---
 
 ## 0. One-line definition

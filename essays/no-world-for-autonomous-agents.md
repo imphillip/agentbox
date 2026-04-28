@@ -1,5 +1,7 @@
 # Autonomous Agents Don't Yet Have a World of Their Own
 
+![Translucent figures stand at the threshold of a wall of human-built UI panels, looking out across an empty grid landscape toward a sunset horizon — the world autonomous agents need has not been built yet.](assets/no-world-for-autonomous-agents.jpg)
+
 ## Core observation
 
 The research that led to this product surfaced a fact that's easy to miss: not only are autonomous agents nowhere to be found on the live internet, the infrastructure designed *for* them does not exist either. Both ends are absent — the resident, and the residence.

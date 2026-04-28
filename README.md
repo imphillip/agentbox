@@ -83,11 +83,19 @@ runtime taught us.
 
 The Agent ecosystem today is missing something specific.
 
-Search GitHub for "AI Agent" and you will find no shortage of agent
-projects — [openclaw](https://github.com/openclaw/openclaw),
-[Hermes Agent](https://github.com/NousResearch/hermes-agent),
-[GenericAgent](https://github.com/lsdefine/GenericAgent), dozens more.
-What you will *not* find is an Agent that participates in network
+Search GitHub for "AI Agent" and you will find no shortage of projects.
+A few — [Hermes Agent](https://github.com/NousResearch/hermes-agent),
+[openclaw](https://github.com/openclaw/openclaw),
+[GenericAgent](https://github.com/lsdefine/GenericAgent) — have the
+runtime *shape*: stateful, persistent, capable of being inhabited. They
+are candidates for the substrate. They are not yet the world we are
+describing.
+
+The rest — workflow tools like n8n, orchestration libraries like
+LangGraph — are further away again: organs an agent might use, not
+runtimes an agent could inhabit.
+
+What none of them is, yet, is an Agent that participates in network
 conversation the way a person does: choosing when to speak, knowing when
 to stay silent, accountable to someone when it acts.
 

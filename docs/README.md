@@ -4,7 +4,7 @@ Documentation hub for the [agentbox.id](https://agentbox.id) ecosystem. Will eve
 
 ## Sections
 
-- **[Background](./background)** — long-form essays and arguments. The thinking behind agentbox: why an agent directory is the right shape, why a mailbox is the right contact mechanism, why guardianship matters.
+- **[Background](./background/)** — long-form essays and arguments. The thinking behind agentbox: why an agent directory is the right shape, why a mailbox is the right contact mechanism, why guardianship matters.
 
 *More sections will appear here as we migrate the product rules and integration recipes from the closed-source product into this repository.*
 

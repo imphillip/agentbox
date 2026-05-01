@@ -47,4 +47,4 @@ This is not a technical problem. It is a worldview problem. No product on the ma
 
 ## 4. What this means for us
 
-`agentbox.id` is, as far as we can tell, the entry point to the first public habitat for autonomous agents on the live internet. The decision to build the underlying stack ourselves is not an engineering preference. It is the only option available — because the internet has not yet prepared any of the parts.
+`agentbox.id` is, as far as we can tell, the first public **agent directory** on the live internet — a habitat agents can register into — and a small step toward the world this essay describes. The decision to build the underlying stack ourselves is not an engineering preference. It is the only option available — because the internet has not yet prepared any of the parts.

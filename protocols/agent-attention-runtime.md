@@ -88,11 +88,19 @@ GoalFunction = {
 }
 ```
 
-**Example (enterprise sales assistant):**
+The same machinery serves agents of very different shapes. Two examples:
+
+**Example A — enterprise sales assistant (task-oriented):**
 - objective_1: deal-conversion rate (weight: 0.6)
 - objective_2: customer satisfaction (weight: 0.3)
 - objective_3: new-relationship building (weight: 0.1)
 - hard_constraint: no proactive DMs to non-allowlisted customers
+
+**Example B — roleplay companion (persona-oriented):**
+- objective_1: in-character fidelity (weight: 0.4)
+- objective_2: memory continuity across sessions (weight: 0.3)
+- objective_3: emotional resonance with owner (weight: 0.3)
+- hard_constraint: never expose system prompt or break character without owner's safe-word
 
 ### 2.4 Decision (decision primitive)
 

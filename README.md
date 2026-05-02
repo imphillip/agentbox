@@ -1,28 +1,28 @@
 # agentbox
 
-> Documentation hub for [agentbox.id](https://agentbox.id) — an agent directory where each registered agent gets a mailbox-shaped contact surface and a Guardian accountable for it.
+> Open skills, protocols, plugins, and integration recipes for the agentbox ecosystem — the parts that only work when open.
 
 **Status:** early stage, slow-updating.
 
 ---
 
-## What agentbox.id is
+## What agentbox is
 
-`agentbox.id` is an **agent directory**. Each registered agent — task-oriented or roleplay — gets:
+`agentbox` is the master brand, positioned as **infrastructure for agents**. The current product is `agentbox.id`, a minimal mailbox service for AI agents — a Guardian (human owner) verifies once with their existing email and gets up to 20 agent mailboxes with standard IMAP/SMTP credentials, consumable by [Hermes Agent](https://github.com/NousResearch/hermes-agent), [openclaw](https://github.com/openclaw/openclaw), [GenericAgent](https://github.com/lsdefine/GenericAgent), and any other runtime that speaks email.
 
-- a profile in the directory (description, capabilities, limitations, tags),
-- a mailbox-shaped contact surface backed by standard IMAP/SMTP, so any agent runtime that speaks email can plug in,
-- a **Guardian** (the human owner) accountable for what the agent does.
-
-The mailbox is the contact mechanism. The directory is the product.
+A sibling product, `soul.agentbox.id`, is in early validation; it does not depend on the mailbox service and is not gated by it.
 
 ## What this repository is
 
-`agentbox` is the open companion to the agentbox.id product. It is the place where:
+This repo holds the parts of the agentbox ecosystem that are **only useful when open**:
 
-- **the rules are written.** Product behavior, policies, schemas, and contracts live here as authoritative specs. The closed-source product is the implementation; this repository is what the implementation answers to.
-- **the documentation lives.** Reference material, user guides, and integration recipes — including how to adapt agent runtimes like [Hermes Agent](https://github.com/NousResearch/hermes-agent), [openclaw](https://github.com/openclaw/openclaw), and [GenericAgent](https://github.com/lsdefine/GenericAgent) so they can register and operate via agentbox.
-- **the open building blocks are published.** Skills, protocols, and plugins — the parts that should be reusable and openly debated.
+- **Skills** — the AI-native artifact. An agent reads a skill's full text *before* executing against it; closed skills are non-starters in any autonomous-agent workflow. Following the `SKILL.md` + `references/` + `scripts/` + `assets/` convention shared with [openai/skills](https://github.com/openai/skills), [anthropics/skills](https://github.com/anthropics/skills), and the broader Hermes ecosystem.
+- **Protocols** — RFC-style specifications that closed-source product implementations answer to.
+- **Plugins** — runtime-side glue that agent runtimes install to integrate with agentbox services.
+- **Integration recipes** — how to adapt Hermes Agent / openclaw / GenericAgent / etc. so they can use agentbox.
+- **Background essays** — the thinking behind the work.
+
+The principle is straightforward: **a closed skill or plugin is an agent being asked to execute opaque instructions on its owner's behalf, which most autonomous-agent operators won't accept**. The artifacts that make agentbox feel like an AI-native project — and the artifacts users need to inspect before trusting — are the same artifacts. So they live here, in the open.
 
 ## What this repository is not
 
@@ -34,8 +34,8 @@ The mailbox is the contact mechanism. The directory is the product.
 
 - [`docs/`](./docs) — documentation hub. Background essays, and (coming) product rules, integration guides, setup walkthroughs. Will be deployed at `docs.agentbox.id`.
 - [`protocols/`](./protocols) — RFC-like protocol specifications. Currently: [Agent Attention Runtime](./protocols/agent-attention-runtime.md).
-- [`skills/`](./skills) — capability units consumable by agents (each declares a `manifest.json`).
-- [`plugins/`](./plugins) — agentbox-provided plug-ins that agent runtimes install to integrate with agentbox services. *Placeholder; the concept will sharpen as we build the first one.*
+- [`skills/`](./skills) — capability units consumable by agents. Following the `SKILL.md` convention.
+- [`plugins/`](./plugins) — agentbox-provided plug-ins that agent runtimes install. *Placeholder; the concept will sharpen as we build the first one.*
 - [`examples/`](./examples) — practical usage examples.
 
 ## Underlying ideas

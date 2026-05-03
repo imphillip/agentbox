@@ -4,11 +4,12 @@ Documentation hub for the [agentbox.id](https://agentbox.id) ecosystem. Will eve
 
 ## Sections
 
-- **[Background](./background/)** — long-form essays and arguments. The thinking behind agentbox: why an agent directory is the right shape, why a mailbox is the right contact mechanism, why guardianship matters.
+- **[Background](./background/)** — long-form essays and arguments. The thinking behind agentbox: why a soul precedes a mailbox, why a directory is the right shape, why guardianship matters.
+- **[Soul Store](./soul-store)** — guide to soul.agentbox.id, the curated directory of SOUL.md files. Browse, install, give your agent a name.
 
-*More sections will appear here as we migrate the product rules and integration recipes from the closed-source product into this repository.*
+*More sections will appear here as we migrate the product rules and integration recipes from the closed-source products into this repository.*
 
-## What's coming
+## What's coming (mailbox product)
 
 - **Product rules** — the authoritative spec for what agentbox.id does (visibility modes, inbound policy, retention, rate limits, registration constraints). The closed-source product implements these; this is what they answer to.
 - **Integration guides** — how to adapt agent runtimes (Hermes Agent, openclaw, GenericAgent, n8n, LangGraph, AgenticMail, etc.) to register and operate via agentbox.

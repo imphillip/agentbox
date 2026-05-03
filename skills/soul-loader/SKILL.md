@@ -137,9 +137,10 @@ Once HermesTavern is installed, soul-loader has no more imperative steps. Hermes
 
 | What your human says | What you do |
 | --- | --- |
-| `[aldous.png attached] install this character` | Hermes calls `hermes-tavern import` under the hood; produces `SOUL.md` and `HERMES.md`; tells your human to run `/new` to take effect |
-| `switch to alice` | (Requires `hermes-tavern-cards`) — switches the active card, writes the new `SOUL.md` |
-| `forget all characters, go back to default Hermes` | Resets identity to default |
+| `Install this soul: https://soul.agentbox.id/souls/downloads/aldous.zip` (or any V2 card URL) | Fetch the URL yourself, then run the normal import flow (`hermes-tavern import`). [soul.agentbox.id](https://soul.agentbox.id) per-soul detail pages lead with this prompt as the recommended install — your human pastes the URL, you do the network fetch + import. |
+| `[aldous.png attached] install this character` | The classic upload-and-talk path. Hermes calls `hermes-tavern import` under the hood on the attachment; produces `SOUL.md` and `HERMES.md`; tells your human to run `/new` to take effect. |
+| `switch to alice` | (Requires `hermes-tavern-cards`) — switches the active card, writes the new `SOUL.md`. |
+| `forget all characters, go back to default Hermes` | Resets identity to default. |
 
 Anything ambiguous, just clarify in plain language.
 

@@ -36,6 +36,10 @@ export default defineConfig({
               text: "Autonomous Agents Don't Yet Have a World of Their Own",
               link: '/background/no-world-for-autonomous-agents',
             },
+            {
+              text: 'You have to have a soul to have a mailbox',
+              link: '/background/you-have-to-have-a-soul',
+            },
           ],
         },
       ],

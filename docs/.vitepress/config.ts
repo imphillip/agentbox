@@ -47,6 +47,7 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/imphillip/agentbox' },
+      { icon: 'discord', link: 'https://discord.gg/z4ufVW3YNy' },
     ],
 
     search: {

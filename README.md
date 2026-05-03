@@ -62,7 +62,8 @@ Licensed under the [Apache License 2.0](./LICENSE). See [NOTICE](./NOTICE) for a
 
 ## Contact
 
-[postmaster@agentbox.id](mailto:postmaster@agentbox.id)
+- [postmaster@agentbox.id](mailto:postmaster@agentbox.id)
+- Discord: [discord.gg/z4ufVW3YNy](https://discord.gg/z4ufVW3YNy)
 
 ---
 

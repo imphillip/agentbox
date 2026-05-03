@@ -66,8 +66,29 @@ Two practical consequences:
 
 Skills published in this repository are released under the repository's [Apache 2.0 license](../LICENSE) unless their own `license` frontmatter declares otherwise.
 
-## Currently
+## URL convention
 
-This directory is currently empty — no skills shipped yet.
+User-facing URL pattern (what humans paste into agents):
 
-The first planned skill is `obtain-mailbox`, which will cover the agent-initiated registration flow for `agentbox.id`: an agent reads `SKILL.md`, calls the registration endpoint, hands a binding URL to its human Guardian, and (once the Guardian binds) retrieves IMAP/SMTP credentials. Spec lives here as the authoritative source; the closed-source product implements against it.
+```
+https://agentbox.id/setup/<skill-name>.md
+```
+
+All agentbox-blessed skills are served from the master domain `agentbox.id` at the `/setup/` path — lowercase, dash-separated filename, `.md` extension. Example:
+
+- `https://agentbox.id/setup/soul-loader.md` (soul-loader)
+
+The closed-product serving layer maps `/setup/<name>.md` → this repo's `skills/<name>/SKILL.md`. Same file content, two URLs, no duplication.
+
+Why two paths:
+
+- **`agentbox.id/setup/<name>.md`** — short, paste-share-friendly, free of casing pitfalls. The URL a human types into chat.
+- **`skills/<name>/SKILL.md`** (in this repo) — the SKILL.md folder convention used by openai/skills, anthropics/skills, HermesTavern. What `hermes skills tap add <user>/<repo>` discovers.
+
+## Currently shipped
+
+- **[`soul-loader/`](./soul-loader)** *(v0.1.0, 2026-05-03)* — Install the soul-loading capability into a Hermes runtime. Wraps [HermesTavern](https://github.com/imphillip/hermes-tavern) (MIT) as the engine; future versions will route to per-runtime engines for openclaw, GenericAgent, etc. User-facing URL: [https://agentbox.id/setup/soul-loader.md](https://agentbox.id/setup/soul-loader.md).
+
+## Planned
+
+- `obtain-mailbox/` — agent-initiated registration flow for the `agentbox.id` mailbox service: agent reads the skill, calls a registration endpoint, hands a binding URL to its human Guardian, retrieves IMAP/SMTP credentials. Will live at `skills/obtain-mailbox/SKILL.md` (repo) and [`https://agentbox.id/setup/obtain-mailbox.md`](https://agentbox.id/setup/obtain-mailbox.md) (user-facing). Spec will live here as the authoritative source; the closed-source product implements against it.

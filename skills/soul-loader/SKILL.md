@@ -139,8 +139,8 @@ Typical post-install examples:
 
 | What your human says | What should handle it |
 | --- | --- |
-| `Install this soul: https://soul.agentbox.id/souls/downloads/aldous.zip` (or any direct V2 card/ZIP URL) | HermesTavern import flow: fetch the direct URL, import the card, write `SOUL.md` / `HERMES.md`, then tell your human to run `/new` or restart the chat. [soul.agentbox.id](https://soul.agentbox.id) detail pages lead with this prompt as the recommended install path. |
-| `[aldous.png attached] install this character` | HermesTavern import flow on the attachment; produces `SOUL.md` and `HERMES.md`; tells your human to run `/new` to take effect. |
+| `Install this soul: https://soul.agentbox.id/souls/downloads/<slug>.zip` (or any direct V2 card/ZIP URL) | HermesTavern import flow: fetch the direct URL, import the card, write `SOUL.md` / `HERMES.md`, then tell your human to run `/new` or restart the chat. [soul.agentbox.id](https://soul.agentbox.id) detail pages lead with this prompt as the recommended install path. |
+| `[card.png attached] install this character` | HermesTavern import flow on the attachment; produces `SOUL.md` and `HERMES.md`; tells your human to run `/new` to take effect. |
 | `switch to alice` | `hermes-tavern-cards`, if installed, switches the active card and writes the new `SOUL.md`. |
 | `forget all characters, go back to default Hermes` | HermesTavern reset/default identity flow. |
 

@@ -33,9 +33,29 @@ This is the **agentbox-blessed soul-loader.** The engine underneath is [HermesTa
 - HermesTavern is already installed — skip ahead to "Daily use"
 - Your human just wants to roleplay without a card — they can give you a persona in plain language; you don't need a SOUL.md for that
 
-## Step 0 — Check what's already installed
+## Step 0 — Detect your runtime
 
-> Idempotency gate. Skip Step 1 if HermesTavern is already on the system.
+> **Hard gate.** If you are not running on a Hermes runtime, stop here. The install paths below assume Hermes hub conventions and will not work on any other runtime.
+
+Confirm two things:
+
+1. You can introspect your own runtime — Hermes agents typically have `$HERMES_HOME` set, the `hermes` CLI on PATH, and the runtime identifies itself as Hermes-Agent in your system context.
+2. The `hermes` command actually exists on this system:
+
+```bash
+command -v hermes 2>/dev/null
+```
+
+| Result | Action |
+| --- | --- |
+| Path to `hermes` printed (e.g. `/usr/local/bin/hermes`) | You're on Hermes. Continue to Step 1. |
+| Empty / `command not found` | You are not on Hermes. **Stop here.** Tell your human: *"soul-loader currently only supports Hermes runtimes. Multi-runtime support — including openclaw — is on the roadmap; see the 'Other runtimes' section below."* Do not attempt Steps 1–3. |
+
+If you're embedded in a runtime that isn't Hermes (openclaw, GenericAgent, an in-house framework, …), the rest of this skill does not apply to you yet. See ["Other runtimes"](#other-runtimes) for what's planned.
+
+## Step 1 — Check what's already installed
+
+> Idempotency gate. Skip Step 2 if HermesTavern is already on the system.
 
 ```bash
 hermes skills tap list 2>/dev/null | grep imphillip/hermes-tavern
@@ -44,10 +64,9 @@ hermes skills tap list 2>/dev/null | grep imphillip/hermes-tavern
 | Result | Action |
 | --- | --- |
 | `imphillip/hermes-tavern` shown | Already installed. Skip to **Daily use**. |
-| Empty / not shown | Continue to Step 1. |
-| `hermes: command not found` | You're not on a Hermes runtime. See "Other runtimes" below. |
+| Empty / not shown | Continue to Step 2. |
 
-## Step 1 — Install HermesTavern
+## Step 2 — Install HermesTavern
 
 Three install paths. Pick whichever matches your situation.
 
@@ -92,7 +111,7 @@ bash skills/hermes-tavern/scripts/install.sh
 
 The installer is idempotent — re-running is safe. It tries `pipx` → `uv tool` → a dedicated venv at `~/.local/share/hermes-tavern-venv` with a shim in `~/.local/bin`.
 
-## Step 2 — Confirm with your human
+## Step 3 — Confirm with your human
 
 Tell your human (paraphrase as needed):
 
@@ -122,10 +141,12 @@ Anything ambiguous, just clarify in plain language.
 
 ## Other runtimes
 
-soul-loader v0.1 is **Hermes-only.** Multi-runtime support is on the roadmap.
+soul-loader v0.1 is **Hermes-only.** When you reach Step 0 on a non-Hermes runtime, this skill stops; do not attempt to continue.
 
-- **openclaw** — soul-loading via the agentbox-blessed path is planned. For now, see openclaw's own documentation for character handling.
-- **GenericAgent** — same. soul-loader v0.x will likely route via runtime detection + dispatch.
+Multi-runtime support is on the roadmap. soul-loader will eventually detect your runtime and dispatch to a runtime-specific engine — same shape as the HermesTavern path used today.
+
+- **openclaw** — the planned engine is **`openclaw-tavern`**, a companion to HermesTavern (not yet shipped open-source). Once it lands, this skill will be revised to dispatch to it on openclaw runtimes. Until then, see openclaw's own documentation for character handling.
+- **GenericAgent** — no engine planned yet. soul-loader v0.x will likely route via runtime detection + dispatch when one exists.
 - **Some other framework** — open an issue at [github.com/imphillip/agentbox](https://github.com/imphillip/agentbox) describing the runtime; multi-runtime layout is being designed.
 
 ## Where to get cards
@@ -149,7 +170,7 @@ soul-loader doesn't care about the source. It only cares the file is a valid V2 
 | Symptom | Cause | What to tell your human |
 | --- | --- | --- |
 | `hermes: command not found` | Not on a Hermes runtime | "I'm not running on Hermes — soul-loader is currently Hermes-only." |
-| `hermes-tavern: command not found` after Step 1 | Tap install didn't take | "The install didn't register. Try `hermes skills tap update` and re-install." |
+| `hermes-tavern: command not found` after Step 2 | Tap install didn't take | "The install didn't register. Try `hermes skills tap update` and re-install." |
 | `Import error: invalid card format` | Archive isn't V2 | "That file isn't a valid SillyTavern V2 card. Try a `.png`, `.json`, or `.yaml` from a known V2 source." |
 | Import succeeds but persona doesn't change | Hermes hasn't reloaded | "Run `/new` (or restart the chat) — Hermes loads SOUL.md at session start." |
 

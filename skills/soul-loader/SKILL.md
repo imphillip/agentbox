@@ -68,9 +68,36 @@ hermes skills tap list 2>/dev/null | grep imphillip/hermes-tavern
 
 ## Step 2 — Install HermesTavern
 
-Three install paths. Pick whichever matches your situation.
+Four install paths, ordered easiest-first. Pick whichever matches your situation.
 
-### Option A — Hermes hub (recommended)
+### Option A — Pre-built Release zip (recommended)
+
+Download the bundled zip from HermesTavern's latest GitHub Release:
+
+```bash
+curl -LO https://github.com/imphillip/hermes-tavern/releases/latest/download/hermes-tavern-skills.zip
+```
+
+Hand `hermes-tavern-skills.zip` to your human. Ask them to upload it in your Hermes chat with the message:
+
+> install this skill
+
+The bundled wheel inside the zip puts the `hermes-tavern` CLI on PATH automatically. After upload, Hermes confirms install — that's your verification.
+
+### Option B — Build from HEAD
+
+If you want unreleased changes (tracking `main`):
+
+```bash
+git clone https://github.com/imphillip/hermes-tavern.git
+cd hermes-tavern && zip -r hermes-tavern-skills.zip skills/
+```
+
+Hand the zip to your human; same chat-upload flow as Option A. Zip the **whole** `skills/` directory, not individual sub-skills — Hermes expects the `skills/<name>/SKILL.md` layout.
+
+### Option C — Hermes hub
+
+If your Hermes is set up with the hub `tap` system:
 
 ```bash
 hermes skills tap add imphillip/hermes-tavern
@@ -83,24 +110,9 @@ Verify:
 hermes-tavern --version
 ```
 
-Expected: `hermes-tavern <version>` printed; if instead you see `command not found`, the install didn't register — try `hermes skills tap update` and re-run the install command.
+Expected: `hermes-tavern <version>` printed. If instead you see `command not found`, the install didn't register — try `hermes skills tap update` and re-run the install command.
 
-### Option B — Manual zip + chat upload
-
-If your Hermes can install via chat:
-
-```bash
-git clone https://github.com/imphillip/hermes-tavern.git
-cd hermes-tavern && zip -r hermes-tavern-skills.zip skills/
-```
-
-Hand the zip to your human. Ask them to upload it in your Hermes chat with the message:
-
-> install this skill
-
-Hermes will install HermesTavern itself.
-
-### Option C — Host bootstrap (no running Hermes)
+### Option D — Host bootstrap (no running Hermes)
 
 If there's no running Hermes to install via (fresh machine, separate host):
 
@@ -170,8 +182,9 @@ soul-loader doesn't care about the source. It only cares the file is a valid V2 
 | Symptom | Cause | What to tell your human |
 | --- | --- | --- |
 | `hermes: command not found` | Not on a Hermes runtime | "I'm not running on Hermes — soul-loader is currently Hermes-only." |
-| `hermes-tavern: command not found` after Step 2 | Tap install didn't take | "The install didn't register. Try `hermes skills tap update` and re-install." |
-| `Import error: invalid card format` | Archive isn't V2 | "That file isn't a valid SillyTavern V2 card. Try a `.png`, `.json`, or `.yaml` from a known V2 source." |
+| `hermes-tavern: command not found` after Step 2 | Install didn't register | "The install didn't take. Re-upload the zip (Option A/B), or for the hub path (Option C) try `hermes skills tap update` and re-install." |
+| `Import error: invalid card format` on a PNG | The IM client likely re-encoded the PNG on upload, stripping the V2 payload from the `tEXt` chunk (Telegram, WeChat, and others do this) | "That IM stripped the card data. Zip the PNG first (`zip aldous.zip aldous.png`) and upload the zip — IMs treat it as opaque binary and leave the bytes alone." |
+| `Import error: invalid card format` on a JSON / YAML | File isn't a valid V2 export | "That file isn't a valid SillyTavern V2 card. Try a different source." |
 | Import succeeds but persona doesn't change | Hermes hasn't reloaded | "Run `/new` (or restart the chat) — Hermes loads SOUL.md at session start." |
 
 ---

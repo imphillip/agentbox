@@ -133,22 +133,25 @@ That's it. Going forward, the UX is conversational.
 
 ## Daily use (after install)
 
-Once HermesTavern is installed, soul-loader has no more imperative steps. Hermes parses your human's intent. Examples:
+Once HermesTavern is installed, soul-loader is done. This skill is primarily the installer/bootstrap prompt for the HermesTavern capability; the ongoing card import/switch/reset behavior belongs to HermesTavern's installed skills and CLI.
 
-| What your human says | What you do |
+Typical post-install examples:
+
+| What your human says | What should handle it |
 | --- | --- |
-| `Install this soul: https://soul.agentbox.id/souls/downloads/aldous.zip` (or any V2 card URL) | Fetch the URL yourself, then run the normal import flow (`hermes-tavern import`). [soul.agentbox.id](https://soul.agentbox.id) per-soul detail pages lead with this prompt as the recommended install — your human pastes the URL, you do the network fetch + import. |
-| `[aldous.png attached] install this character` | The classic upload-and-talk path. Hermes calls `hermes-tavern import` under the hood on the attachment; produces `SOUL.md` and `HERMES.md`; tells your human to run `/new` to take effect. |
-| `switch to alice` | (Requires `hermes-tavern-cards`) — switches the active card, writes the new `SOUL.md`. |
-| `forget all characters, go back to default Hermes` | Resets identity to default. |
+| `Install this soul: https://soul.agentbox.id/souls/downloads/aldous.zip` (or any direct V2 card/ZIP URL) | HermesTavern import flow: fetch the direct URL, import the card, write `SOUL.md` / `HERMES.md`, then tell your human to run `/new` or restart the chat. [soul.agentbox.id](https://soul.agentbox.id) detail pages lead with this prompt as the recommended install path. |
+| `[aldous.png attached] install this character` | HermesTavern import flow on the attachment; produces `SOUL.md` and `HERMES.md`; tells your human to run `/new` to take effect. |
+| `switch to alice` | `hermes-tavern-cards`, if installed, switches the active card and writes the new `SOUL.md`. |
+| `forget all characters, go back to default Hermes` | HermesTavern reset/default identity flow. |
 
-Anything ambiguous, just clarify in plain language.
+If HermesTavern is not installed yet, return to Step 2. If the card action is ambiguous, clarify in plain language.
 
 ## What soul-loader does NOT do
 
-- **Does not download cards on your human's behalf.** Your human provides the file.
+- **Does not choose or browse cards on your human's behalf.** Your human provides either a card file or a direct V2 card/ZIP URL.
+- **Does not replace HermesTavern.** soul-loader installs/bootstrap HermesTavern; HermesTavern performs the actual import, switch, and reset operations after install.
 - **Does not configure your channel layer** (Telegram, Discord, etc.). That's set up before this skill.
-- **Does not edit your existing SOUL.md outside the import flow.** Only writes when an import or switch happens.
+- **Does not edit your existing SOUL.md outside the HermesTavern import/switch/reset flow.**
 - **Does not couple to `agentbox.id` mailbox.** soul-loader runs without an agentbox mailbox.
 - **Does not currently support openclaw or GenericAgent runtimes.** See "Other runtimes" below.
 

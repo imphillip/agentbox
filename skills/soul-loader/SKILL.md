@@ -101,8 +101,10 @@ If your Hermes is set up with the hub `tap` system:
 
 ```bash
 hermes skills tap add imphillip/hermes-tavern
-hermes skills install hermes-tavern hermes-tavern-cards
+hermes skills install hermes-tavern
 ```
+
+> If you have an older `hermes-tavern-cards` install lying around (from before HermesTavern v0.5), run `hermes skills uninstall hermes-tavern-cards` — that skill was merged into `hermes-tavern` in v0.5 and is no longer separately published.
 
 Verify:
 
@@ -141,7 +143,7 @@ Typical post-install examples:
 | --- | --- |
 | `Install this soul: https://soul.agentbox.id/souls/downloads/<slug>.zip` (or any direct V2 card/ZIP URL) | HermesTavern import flow: fetch the direct URL, import the card, write `SOUL.md` / `HERMES.md`, then tell your human to run `/new` or restart the chat. [soul.agentbox.id](https://soul.agentbox.id) detail pages lead with this prompt as the recommended install path. |
 | `[card.png attached] install this character` | HermesTavern import flow on the attachment; produces `SOUL.md` and `HERMES.md`; tells your human to run `/new` to take effect. |
-| `switch to alice` | `hermes-tavern-cards`, if installed, switches the active card and writes the new `SOUL.md`. |
+| `switch to alice` | HermesTavern's library-management flow — switches the active card and writes the new `SOUL.md`. |
 | `forget all characters, go back to default Hermes` | HermesTavern reset/default identity flow. |
 
 If HermesTavern is not installed yet, return to Step 2. If the card action is ambiguous, clarify in plain language.

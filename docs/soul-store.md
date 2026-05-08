@@ -14,7 +14,7 @@ A small, hand-curated collection of characters in SillyTavern V2 format. Across 
 
 [Browse the full catalogue →](https://soul.agentbox.id)
 
-The store also accepts external sources — chub.ai cards, your own V2 exports, anything in the format. It isn't the source of souls; it's a curated entry point. For the format itself, see [HermesTavern](https://github.com/imphillip/hermes-tavern).
+The store also accepts external sources — chub.ai cards, your own V2 exports, anything in the format. It isn't the source of souls; it's a curated entry point. For the format itself, see [SoulTavern](https://github.com/imphillip/SoulTavern).
 
 ## How to install a soul
 
@@ -28,9 +28,9 @@ On any soul's detail page, copy the install prompt. It looks like:
 Install this soul: https://soul.agentbox.id/souls/downloads/<slug>.zip
 ```
 
-Paste it into your Hermes agent. The agent fetches the URL, hands the result to HermesTavern, and imports the soul as `SOUL.md` in your `$HERMES_HOME`. Run `/new` (or restart the chat) and your agent is in character.
+Paste it into your agent. The agent fetches the URL, hands the result to SoulTavern, and imports the soul as `SOUL.md` (plus runtime-specific companion files) into your runtime's identity slot. Run `/new` (or restart the chat) and your agent is in character.
 
-Prerequisite: HermesTavern is installed. If it isn't, run [soul-loader](https://agentbox.id/setup/soul-loader.md) first — the agentbox-blessed installer for the loader itself.
+Prerequisite: SoulTavern is installed. If it isn't, run [soul-loader](https://agentbox.id/setup/soul-loader.md) first — the agentbox-blessed installer for the loader itself.
 
 ### Manual fallback
 
@@ -42,11 +42,15 @@ Same end result. The recommended path just saves the upload-and-re-upload step.
 
 ## Runtime support
 
-| Runtime | Status |
-| --- | --- |
-| **Hermes** | Supported via [HermesTavern](https://github.com/imphillip/hermes-tavern). Validated pipeline; the default target. |
-| **openclaw** | Planned. The companion engine `openclaw-tavern` is on the roadmap (not yet shipped). When it lands, [soul-loader](https://agentbox.id/setup/soul-loader.md) will dispatch to it on openclaw runtimes. |
-| **GenericAgent and others** | Unspecified. Open an [issue](https://github.com/imphillip/agentbox) if you have a runtime in mind. |
+[SoulTavern](https://github.com/imphillip/SoulTavern) v1.0 ships with three targets, selected by `--target`:
+
+| Runtime | `--target` | Status |
+| --- | --- | --- |
+| **Hermes** | `hermes` (default) | Production. Writes `SOUL.md` + `HERMES.md` to `$HERMES_HOME`. |
+| **OpenClaw** | `openclaw` | Production. Writes `SOUL.md` + `AGENTS.md` (managed section) + `IDENTITY.md` to an OpenClaw workspace. |
+| **GenericAgent and others** | `generic` | Skeleton fallback; lands functionally in a later release. Open an [issue](https://github.com/imphillip/agentbox) if you have a runtime in mind. |
+
+The [soul-loader](https://agentbox.id/setup/soul-loader.md) skill installs SoulTavern via Hermes (Options A–C) or via host bootstrap (Option D, runtime-agnostic — used for OpenClaw).
 
 ## What is SOUL.md?
 
@@ -54,7 +58,7 @@ A markdown file in your runtime's identity slot. Hermes loads it at session star
 
 The companion file is `HERMES.md` — the project-context slot, holding lorebook / worldbuilding content if the source card has any.
 
-For the technical detail, [HermesTavern's README](https://github.com/imphillip/hermes-tavern) is the canonical reference.
+For the technical detail, [SoulTavern's README](https://github.com/imphillip/SoulTavern) is the canonical reference. Lineage: `TavernAI → SillyTavern → HermesTavern → SoulTavern`.
 
 ## Why a soul matters
 
@@ -68,7 +72,7 @@ Long form: [You have to have a soul to have a mailbox](./background/you-have-to-
 
 ## Limitations
 
-- **Multi-runtime support is roadmap.** Today: Hermes only.
+- **Multi-runtime support is alpha.** Hermes and OpenClaw are both production targets in SoulTavern v1.0; GenericAgent fallback is a skeleton.
 - **Sign-in is currently paused.** Downloads work as guest. Per-user history will return when the alpha shakes out.
 - **Catalogue is hand-curated.** Small intentionally — quality over coverage. External cards (chub.ai, your own V2 exports) work too.
 - **PNG re-encoding by IMs can break uploads.** If your agent reports `invalid card format` on a PNG that should be valid, your IM client (Telegram, WeChat, …) likely re-encoded the file and stripped the V2 payload from the `tEXt` chunk. Workaround: zip the PNG first (`zip aldous.zip aldous.png`) and upload the zip — IMs treat it as opaque binary.
@@ -77,5 +81,5 @@ Long form: [You have to have a soul to have a mailbox](./background/you-have-to-
 
 - [agentbox.id](https://agentbox.id) — the mailbox product
 - [soul-loader skill](https://agentbox.id/setup/soul-loader.md) — installer for SOUL.md loading capability
-- [HermesTavern](https://github.com/imphillip/hermes-tavern) — the import engine (MIT, separate project)
+- [SoulTavern](https://github.com/imphillip/SoulTavern) — the import engine (MIT, separate project; the rebrand-and-multi-target evolution of HermesTavern)
 - [Background essays](./background/) — the thinking behind the work

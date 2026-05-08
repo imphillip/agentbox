@@ -1,171 +1,175 @@
 ---
 name: soul-loader
 description: "Install the soul-loading capability into your runtime, so your human can hand you SillyTavern V2 character cards in chat and you'll import them as SOUL.md."
-version: 0.1.0
+version: 0.2.0
 homepage: https://agentbox.id
 license: Apache-2.0
 metadata:
   agentbox:
     emoji: "🪪"
     category: "loader"
-    related_skills: ["imphillip/hermes-tavern"]
+    related_skills: ["imphillip/SoulTavern"]
 prerequisites:
-  runtimes: ["hermes"]
+  runtimes: ["hermes", "openclaw"]
 ---
 
 # Soul Loader
 
 Install the soul-loading capability into your runtime.
 
-After this skill runs, your human can upload a SillyTavern V2 character card (`.png`, `.json`, `.yaml`) in any Hermes channel — CLI, email, Telegram, Discord, Slack — and you'll import it into the agent's identity slot (`SOUL.md`).
+After this skill runs, your human can upload a SillyTavern V2 character card (`.png`, `.json`, `.yaml`) in chat and you'll import it into the agent's identity slot — `SOUL.md` (with target-specific companion files written next to it).
 
-This is the **agentbox-blessed soul-loader.** The engine underneath is [HermesTavern](https://github.com/imphillip/hermes-tavern), an MIT-licensed importer in the lineage `TavernAI → SillyTavern → HermesTavern`. agentbox does not vendor or modify HermesTavern — soul-loader installs and delegates to the upstream project.
+This is the **agentbox-blessed soul-loader.** The engine underneath is [SoulTavern](https://github.com/imphillip/SoulTavern), an MIT-licensed multi-target importer in the lineage `TavernAI → SillyTavern → HermesTavern → SoulTavern`. agentbox does not vendor or modify SoulTavern — soul-loader installs and delegates to the upstream project.
+
+SoulTavern v1.0 supports multiple runtimes via `--target`: `--target hermes` (default; the historical HermesTavern behavior — writes `SOUL.md` + `HERMES.md`) and `--target openclaw` (writes `SOUL.md` + `AGENTS.md` managed-section + `IDENTITY.md` into an OpenClaw workspace). soul-loader v0.2 covers both runtimes — Hermes via the chat-upload paths (Options A–C), OpenClaw via the host bootstrap (Option D).
 
 ## When to use this skill
 
 - Your human wants to give you a persona / character backed by a real SillyTavern V2 card
-- You're running on a Hermes runtime and HermesTavern isn't installed yet
+- You're on Hermes or OpenClaw and SoulTavern isn't installed yet
 - Your human has a card from [soul.agentbox.id](https://soul.agentbox.id), chub.ai, or any other source
 
 ## When NOT to use this skill
 
-- You're not on Hermes — currently soul-loader only supports Hermes runtimes (see "Other runtimes" below)
-- HermesTavern is already installed — skip ahead to "Daily use"
+- SoulTavern is already installed — skip ahead to "Daily use"
 - Your human just wants to roleplay without a card — they can give you a persona in plain language; you don't need a SOUL.md for that
+- You're on a runtime that isn't Hermes or OpenClaw — see "Other runtimes" below
 
 ## Step 0 — Detect your runtime
 
-> **Hard gate.** If you are not running on a Hermes runtime, stop here. The install paths below assume Hermes hub conventions and will not work on any other runtime.
-
-Confirm two things:
-
-1. You can introspect your own runtime — Hermes agents typically have `$HERMES_HOME` set, the `hermes` CLI on PATH, and the runtime identifies itself as Hermes-Agent in your system context.
-2. The `hermes` command actually exists on this system:
+> **Hard gate.** Different runtimes take different install paths. Detect first, then follow the right branch.
 
 ```bash
 command -v hermes 2>/dev/null
+command -v openclaw 2>/dev/null
 ```
 
 | Result | Action |
 | --- | --- |
-| Path to `hermes` printed (e.g. `/usr/local/bin/hermes`) | You're on Hermes. Continue to Step 1. |
-| Empty / `command not found` | You are not on Hermes. **Stop here.** Tell your human: *"soul-loader currently only supports Hermes runtimes. Multi-runtime support — including openclaw — is on the roadmap; see the 'Other runtimes' section below."* Do not attempt Steps 1–3. |
+| `hermes` printed | You're on Hermes. Continue to Step 1. |
+| `openclaw` printed (and not `hermes`) | You're on OpenClaw. **Skip to Step 2 Option D** (host bootstrap) — that path is runtime-agnostic and installs the `soultavern` CLI directly. |
+| Both empty | You're on neither. See ["Other runtimes"](#other-runtimes) below. **Stop.** Tell your human: *"soul-loader currently supports Hermes and OpenClaw. Multi-runtime expansion is on the roadmap."* |
 
-If you're embedded in a runtime that isn't Hermes (openclaw, GenericAgent, an in-house framework, …), the rest of this skill does not apply to you yet. See ["Other runtimes"](#other-runtimes) for what's planned.
+## Step 1 — Check what's already installed (Hermes branch)
 
-## Step 1 — Check what's already installed
-
-> Idempotency gate. Skip Step 2 if HermesTavern is already on the system.
+> Idempotency gate. Skip Step 2 if SoulTavern is already on the system.
 
 ```bash
-hermes skills tap list 2>/dev/null | grep imphillip/hermes-tavern
+command -v soultavern 2>/dev/null || command -v hermes-tavern 2>/dev/null
 ```
+
+(`hermes-tavern` is the backward-compat alias kept for installs that predate SoulTavern v1.0; if either is on PATH, SoulTavern is installed.)
 
 | Result | Action |
 | --- | --- |
-| `imphillip/hermes-tavern` shown | Already installed. Skip to **Daily use**. |
-| Empty / not shown | Continue to Step 2. |
+| Path to `soultavern` (or `hermes-tavern`) printed | Already installed. Skip to **Daily use**. |
+| Empty / both `command not found` | Continue to Step 2. |
 
-## Step 2 — Install HermesTavern
+## Step 2 — Install SoulTavern
 
 Four install paths, ordered easiest-first. Pick whichever matches your situation.
 
-### Option A — Pre-built Release zip (recommended)
+### Option A — Pre-built Release zip (recommended for Hermes)
 
-Download the bundled zip from HermesTavern's latest GitHub Release:
+Download the bundled zip from SoulTavern's latest GitHub Release:
 
 ```bash
-curl -LO https://github.com/imphillip/hermes-tavern/releases/latest/download/hermes-tavern-skills.zip
+curl -LO https://github.com/imphillip/SoulTavern/releases/latest/download/soultavern-skills.zip
 ```
 
-Hand `hermes-tavern-skills.zip` to your human. Ask them to upload it in your Hermes chat with the message:
+Hand `soultavern-skills.zip` to your human. Ask them to upload it in your Hermes chat with the message:
 
 > install this skill
 
-The bundled wheel inside the zip puts the `hermes-tavern` CLI on PATH automatically. After upload, Hermes confirms install — that's your verification.
+The bundled wheel inside the zip puts the `soultavern` CLI on PATH automatically. After upload, Hermes confirms install — that's your verification.
 
 ### Option B — Build from HEAD
 
 If you want unreleased changes (tracking `main`):
 
 ```bash
-git clone https://github.com/imphillip/hermes-tavern.git
-cd hermes-tavern && zip -r hermes-tavern-skills.zip skills/
+git clone https://github.com/imphillip/SoulTavern.git
+cd SoulTavern && zip -r soultavern-skills.zip skills/
 ```
 
-Hand the zip to your human; same chat-upload flow as Option A. Zip the **whole** `skills/` directory, not individual sub-skills — Hermes expects the `skills/<name>/SKILL.md` layout.
+Hand the zip to your human; same chat-upload flow as Option A. Zip the **whole** `skills/` directory, not individual sub-skills.
 
 ### Option C — Hermes hub
 
 If your Hermes is set up with the hub `tap` system:
 
 ```bash
-hermes skills tap add imphillip/hermes-tavern
-hermes skills install hermes-tavern
+hermes skills tap add imphillip/SoulTavern
+hermes skills install soultavern
 ```
-
-> If you have an older `hermes-tavern-cards` install lying around (from before HermesTavern v0.5), run `hermes skills uninstall hermes-tavern-cards` — that skill was merged into `hermes-tavern` in v0.5 and is no longer separately published.
 
 Verify:
 
 ```bash
-hermes-tavern --version
+soultavern --version
 ```
 
-Expected: `hermes-tavern <version>` printed. If instead you see `command not found`, the install didn't register — try `hermes skills tap update` and re-run the install command.
+Expected: `soultavern <version>` printed. If instead you see `command not found`, the install didn't register — try `hermes skills tap update` and re-run the install command.
 
-### Option D — Host bootstrap (no running Hermes)
+### Option D — Host bootstrap (OpenClaw, fresh machines, or no running Hermes)
 
-If there's no running Hermes to install via (fresh machine, separate host):
+The runtime-agnostic path. Required for OpenClaw; also useful when there's no running Hermes to install via:
 
 ```bash
-git clone https://github.com/imphillip/hermes-tavern.git && cd hermes-tavern
-bash skills/hermes-tavern/scripts/install.sh
+git clone https://github.com/imphillip/SoulTavern.git && cd SoulTavern
+bash skills/soultavern/scripts/install.sh
 ```
 
-The installer is idempotent — re-running is safe. It tries `pipx` → `uv tool` → a dedicated venv at `~/.local/share/hermes-tavern-venv` with a shim in `~/.local/bin`.
+The installer is idempotent — re-running is safe. It tries `pipx` → `uv tool` → a dedicated venv at `~/.local/share/soultavern-venv` with a shim in `~/.local/bin`. Make sure `~/.local/bin` is on your `$PATH`.
+
+After install, OpenClaw users invoke SoulTavern with the right target:
+
+```bash
+soultavern import --target openclaw <card>
+```
 
 ## Step 3 — Confirm with your human
 
 Tell your human (paraphrase as needed):
 
-> "HermesTavern is installed. From now on, when you have a SillyTavern V2 card (`.png`, `.json`, `.yaml`), upload it in chat and tell me what you want — for example, *'install this character'* or *'switch to alice'*. I'll handle the rest."
+> "SoulTavern is installed. From now on, when you have a SillyTavern V2 card (`.png`, `.json`, `.yaml`), upload it in chat and tell me what you want — for example, *'install this character'* or *'switch to alice'*. I'll handle the rest."
 
 That's it. Going forward, the UX is conversational.
 
 ## Daily use (after install)
 
-Once HermesTavern is installed, soul-loader is done. This skill is primarily the installer/bootstrap prompt for the HermesTavern capability; the ongoing card import/switch/reset behavior belongs to HermesTavern's installed skills and CLI.
+Once SoulTavern is installed, soul-loader is done. This skill is primarily the installer/bootstrap prompt; the ongoing card import/switch/reset behavior belongs to SoulTavern's installed skill and CLI.
 
 Typical post-install examples:
 
 | What your human says | What should handle it |
 | --- | --- |
-| `Install this soul: https://soul.agentbox.id/souls/downloads/<slug>.zip` (or any direct V2 card/ZIP URL) | HermesTavern import flow: fetch the direct URL, import the card, write `SOUL.md` / `HERMES.md`, then tell your human to run `/new` or restart the chat. [soul.agentbox.id](https://soul.agentbox.id) detail pages lead with this prompt as the recommended install path. |
-| `[card.png attached] install this character` | HermesTavern import flow on the attachment; produces `SOUL.md` and `HERMES.md`; tells your human to run `/new` to take effect. |
-| `switch to alice` | HermesTavern's library-management flow — switches the active card and writes the new `SOUL.md`. |
-| `forget all characters, go back to default Hermes` | HermesTavern reset/default identity flow. |
+| `Install this soul: https://soul.agentbox.id/souls/downloads/<slug>.zip` (or any direct V2 card/ZIP URL) | SoulTavern import flow: fetch the URL, import with the right `--target`, write `SOUL.md` and target-specific companion files, then tell your human to run `/new` or restart the chat. [soul.agentbox.id](https://soul.agentbox.id) detail pages lead with this prompt as the recommended install path. |
+| `[card.png attached] install this character` | SoulTavern import flow on the attachment; produces `SOUL.md` and target-specific companion files; tells your human to run `/new` to take effect. |
+| `switch to alice` | SoulTavern's library-management flow — switches the active card and writes the new `SOUL.md`. |
+| `forget all characters, go back to default` | SoulTavern reset / default identity flow. |
 
-If HermesTavern is not installed yet, return to Step 2. If the card action is ambiguous, clarify in plain language.
+If SoulTavern is not installed yet, return to Step 2. If the card action is ambiguous, clarify in plain language.
 
 ## What soul-loader does NOT do
 
 - **Does not choose or browse cards on your human's behalf.** Your human provides either a card file or a direct V2 card/ZIP URL.
-- **Does not replace HermesTavern.** soul-loader installs/bootstrap HermesTavern; HermesTavern performs the actual import, switch, and reset operations after install.
+- **Does not replace SoulTavern.** soul-loader installs/bootstraps SoulTavern; SoulTavern performs the actual import, switch, and reset operations after install.
 - **Does not configure your channel layer** (Telegram, Discord, etc.). That's set up before this skill.
-- **Does not edit your existing SOUL.md outside the HermesTavern import/switch/reset flow.**
+- **Does not edit your existing SOUL.md outside the SoulTavern import/switch/reset flow.**
 - **Does not couple to `agentbox.id` mailbox.** soul-loader runs without an agentbox mailbox.
-- **Does not currently support openclaw or GenericAgent runtimes.** See "Other runtimes" below.
 
 ## Other runtimes
 
-soul-loader v0.1 is **Hermes-only.** When you reach Step 0 on a non-Hermes runtime, this skill stops; do not attempt to continue.
+soul-loader v0.2 supports **Hermes** (Options A–C) and **OpenClaw** (Option D). SoulTavern v1.0 itself ships with three targets:
 
-Multi-runtime support is on the roadmap. soul-loader will eventually detect your runtime and dispatch to a runtime-specific engine — same shape as the HermesTavern path used today.
+| `--target` | What it writes | Status |
+| --- | --- | --- |
+| `hermes` (default) | `SOUL.md` + `HERMES.md` in `$HERMES_HOME` | Production |
+| `openclaw` | `SOUL.md` + `AGENTS.md` (managed section) + `IDENTITY.md` in an OpenClaw workspace | Production (v1.0) |
+| `generic` | Skeleton fallback for unspecified runtimes | Skeleton; lands in a later release |
 
-- **openclaw** — the planned engine is **`openclaw-tavern`**, a companion to HermesTavern (not yet shipped open-source). Once it lands, this skill will be revised to dispatch to it on openclaw runtimes. Until then, see openclaw's own documentation for character handling.
-- **GenericAgent** — no engine planned yet. soul-loader v0.x will likely route via runtime detection + dispatch when one exists.
-- **Some other framework** — open an issue at [github.com/imphillip/agentbox](https://github.com/imphillip/agentbox) describing the runtime; multi-runtime layout is being designed.
+If you're on a runtime that isn't Hermes or OpenClaw — GenericAgent, an in-house framework, anything else — open an issue at [github.com/imphillip/agentbox](https://github.com/imphillip/agentbox) describing the runtime. The `--target generic` skeleton + Option D (`bash scripts/install.sh`) is the likely path; we can wire up explicit support once there's a target to validate against.
 
 ## Where to get cards
 
@@ -180,18 +184,18 @@ soul-loader doesn't care about the source. It only cares the file is a valid V2 
 ## Security
 
 - Once loaded, the card becomes your identity. Only load souls from sources your human trusts.
-- HermesTavern writes to `$HERMES_HOME` — confirm the path is correct before running.
-- HermesTavern is open-source ([MIT](https://github.com/imphillip/hermes-tavern/blob/main/LICENSE)). Inspect what it does at [github.com/imphillip/hermes-tavern](https://github.com/imphillip/hermes-tavern) before installing.
+- SoulTavern writes to `$HERMES_HOME` (Hermes target) or an OpenClaw workspace (OpenClaw target) — confirm the path is correct before running.
+- SoulTavern is open-source ([MIT](https://github.com/imphillip/SoulTavern/blob/main/LICENSE)). Inspect what it does at [github.com/imphillip/SoulTavern](https://github.com/imphillip/SoulTavern) before installing.
 
 ## Failure modes
 
 | Symptom | Cause | What to tell your human |
 | --- | --- | --- |
-| `hermes: command not found` | Not on a Hermes runtime | "I'm not running on Hermes — soul-loader is currently Hermes-only." |
-| `hermes-tavern: command not found` after Step 2 | Install didn't register | "The install didn't take. Re-upload the zip (Option A/B), or for the hub path (Option C) try `hermes skills tap update` and re-install." |
+| Both `hermes` and `openclaw` are `command not found` | Not on a supported runtime | "soul-loader currently supports Hermes and OpenClaw. Multi-runtime expansion is on the roadmap." |
+| `soultavern: command not found` after Step 2 | Install didn't register | "The install didn't take. Re-upload the zip (Option A/B), or for the hub path (Option C) try `hermes skills tap update` and re-install. For Option D, check that `~/.local/bin` is on your `$PATH`." |
 | `Import error: invalid card format` on a PNG | The IM client likely re-encoded the PNG on upload, stripping the V2 payload from the `tEXt` chunk (Telegram, WeChat, and others do this) | "That IM stripped the card data. Zip the PNG first (`zip aldous.zip aldous.png`) and upload the zip — IMs treat it as opaque binary and leave the bytes alone." |
 | `Import error: invalid card format` on a JSON / YAML | File isn't a valid V2 export | "That file isn't a valid SillyTavern V2 card. Try a different source." |
-| Import succeeds but persona doesn't change | Hermes hasn't reloaded | "Run `/new` (or restart the chat) — Hermes loads SOUL.md at session start." |
+| Import succeeds but persona doesn't change | Runtime hasn't reloaded | "Run `/new` (or restart the chat) — your runtime loads SOUL.md at session start." |
 
 ---
 

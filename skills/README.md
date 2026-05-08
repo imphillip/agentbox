@@ -1,6 +1,6 @@
 # skills
 
-This directory holds capability units consumable by AI agents. Each skill is a self-contained subdirectory with a markdown spec, optional reference docs, scripts, and assets — discoverable through the `skills/` convention shared by [openai/skills](https://github.com/openai/skills), [anthropics/skills](https://github.com/anthropics/skills), and runtime ecosystems like [HermesTavern](https://github.com/imphillip/hermes-tavern).
+This directory holds capability units consumable by AI agents. Each skill is a self-contained subdirectory with a markdown spec, optional reference docs, scripts, and assets — discoverable through the `skills/` convention shared by [openai/skills](https://github.com/openai/skills), [anthropics/skills](https://github.com/anthropics/skills), and runtime ecosystems like [SoulTavern](https://github.com/imphillip/SoulTavern).
 
 ## Layout
 
@@ -83,11 +83,11 @@ The closed-product serving layer maps `/setup/<name>.md` → this repo's `skills
 Why two paths:
 
 - **`agentbox.id/setup/<name>.md`** — short, paste-share-friendly, free of casing pitfalls. The URL a human types into chat.
-- **`skills/<name>/SKILL.md`** (in this repo) — the SKILL.md folder convention used by openai/skills, anthropics/skills, HermesTavern. What `hermes skills tap add <user>/<repo>` discovers.
+- **`skills/<name>/SKILL.md`** (in this repo) — the SKILL.md folder convention used by openai/skills, anthropics/skills, SoulTavern. What `hermes skills tap add <user>/<repo>` discovers.
 
 ## Currently shipped
 
-- **[`soul-loader/`](./soul-loader)** *(v0.1.0, 2026-05-03)* — Install the soul-loading capability into a Hermes runtime. Wraps [HermesTavern](https://github.com/imphillip/hermes-tavern) (MIT) as the engine; future versions will route to per-runtime engines for openclaw, GenericAgent, etc. User-facing URL: [https://agentbox.id/setup/soul-loader.md](https://agentbox.id/setup/soul-loader.md).
+- **[`soul-loader/`](./soul-loader)** *(v0.2.0, 2026-05-09)* — Install the soul-loading capability into a Hermes or OpenClaw runtime. Wraps [SoulTavern](https://github.com/imphillip/SoulTavern) (MIT, multi-target) as the engine. User-facing URL: [https://agentbox.id/setup/soul-loader.md](https://agentbox.id/setup/soul-loader.md).
 
 ## Planned
 

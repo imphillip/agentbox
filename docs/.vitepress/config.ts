@@ -41,6 +41,10 @@ export default defineConfig({
               text: 'You have to have a soul to have a mailbox',
               link: '/background/you-have-to-have-a-soul',
             },
+            {
+              text: "What's in the box?",
+              link: '/background/whats-in-the-box',
+            },
           ],
         },
       ],

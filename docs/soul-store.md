@@ -2,7 +2,7 @@
 
 [soul.agentbox.id](https://soul.agentbox.id) is the soul store — a directory of downloadable SOUL.md files for AI agents. Browse, pick a personality, install it into your runtime.
 
-Free. SillyTavern V2 format. Currently Hermes-only as a target runtime, with openclaw planned.
+Free. SillyTavern V2 format. Hermes and OpenClaw runtime targets in production; GenericAgent fallback shipping later.
 
 ## Status
 
@@ -28,17 +28,18 @@ On any soul's detail page, copy the install prompt. It looks like:
 Install this soul: https://soul.agentbox.id/souls/downloads/<slug>.zip
 ```
 
-Paste it into your agent. The agent fetches the URL, hands the result to SoulTavern, and imports the soul as `SOUL.md` (plus runtime-specific companion files) into your runtime's identity slot. Run `/new` (or restart the chat) and your agent is in character.
+Paste it into your agent. The agent fetches the URL, hands the result to SoulTavern, and imports the soul as `SOUL.md` (plus runtime-specific companion files) into your runtime's identity slot. Restart the session — your runtime loads `SOUL.md` at startup, and your agent is in character.
 
 Prerequisite: SoulTavern is installed. If it isn't, run [soul-loader](https://agentbox.id/setup/soul-loader.md) first — the agentbox-blessed installer for the loader itself.
 
 ### Manual fallback
 
-Click the download button on the detail page. You get a `.zip`. Upload it to your Hermes chat with:
+Click the download button on the detail page. You get a `.zip`. Hand it to your agent runtime by whatever path that runtime uses:
 
-> install this soul
+- **Hermes:** upload it in your Hermes chat with `install this soul`.
+- **OpenClaw:** point the host's `soultavern` CLI at it directly (`soultavern import --target openclaw <slug>.zip <workspace>`).
 
-Same end result. The recommended path just saves the upload-and-re-upload step.
+Same end result. The recommended path just saves the manual download + handle step.
 
 ## Runtime support
 
@@ -54,9 +55,12 @@ The [soul-loader](https://agentbox.id/setup/soul-loader.md) skill installs SoulT
 
 ## What is SOUL.md?
 
-A markdown file in your runtime's identity slot. Hermes loads it at session start; the content becomes your agent's persona. Capped at 15K characters (75% of Hermes's 20K system prompt slot); oversized cards are compressed via a one-shot LLM distillation pass.
+A markdown file in your runtime's identity slot. The content becomes your agent's persona, loaded at session start.
 
-The companion file is `HERMES.md` — the project-context slot, holding lorebook / worldbuilding content if the source card has any.
+What sits next to `SOUL.md` depends on the runtime:
+
+- **Hermes** writes `SOUL.md` + `HERMES.md` (project-context lorebook) to `$HERMES_HOME`. Each capped at 15K characters (75% of Hermes's 20K system prompt slot); oversized cards are compressed via a one-shot LLM distillation pass.
+- **OpenClaw** writes `SOUL.md` + an `AGENTS.md` managed section + `IDENTITY.md` to the workspace.
 
 For the technical detail, [SoulTavern's README](https://github.com/imphillip/SoulTavern) is the canonical reference. Lineage: `TavernAI → SillyTavern → HermesTavern → SoulTavern`.
 
@@ -82,4 +86,6 @@ Long form: [You have to have a soul to have a mailbox](./background/you-have-to-
 - [agentbox.id](https://agentbox.id) — the mailbox product
 - [soul-loader skill](https://agentbox.id/setup/soul-loader.md) — installer for SOUL.md loading capability
 - [SoulTavern](https://github.com/imphillip/SoulTavern) — the import engine (MIT, separate project; the rebrand-and-multi-target evolution of HermesTavern)
-- [Background essays](./background/) — the thinking behind the work
+- [What's in the box?](./background/whats-in-the-box) — runtime spectrum essay; where agentbox sits relative to A/B/middle runtime forms, and why the address layer outlives them
+- [You have to have a soul to have a mailbox](./background/you-have-to-have-a-soul) — short essay on why souled agents deserve addresses
+- [Full background essays index](./background/)

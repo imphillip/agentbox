@@ -36,10 +36,17 @@ Prerequisite: SoulTavern is installed. If it isn't, run [soul-loader](https://ag
 
 Click the download button on the detail page. You get a `.zip`. Hand it to your agent runtime by whatever path that runtime uses:
 
-- **Hermes:** upload it in your Hermes chat with `install this soul`.
-- **OpenClaw:** point the host's `soultavern` CLI at it directly (`soultavern import --target openclaw <slug>.zip <workspace>`).
+- **Hermes / Claude Code / any chat-upload runtime:** upload the zip in chat with `install this soul`. The agent passes it to its installed SoulTavern skill.
+- **Direct script invocation (any runtime with shell access):**
 
-Same end result. The recommended path just saves the manual download + handle step.
+```bash
+SKILL=<your_runtime_skills_dir>/soultavern
+python3 $SKILL/scripts/import.py --card <slug>.zip --home <workspace> [--target openclaw]
+```
+
+(`--target` defaults to `hermes`; pass `openclaw` for an OpenClaw workspace.)
+
+Same end result. The recommended (URL-based) path just saves the manual download + handle step.
 
 ## Runtime support
 
@@ -59,8 +66,10 @@ A markdown file in your runtime's identity slot. The content becomes your agent'
 
 What sits next to `SOUL.md` depends on the runtime:
 
-- **Hermes** writes `SOUL.md` + `HERMES.md` (project-context lorebook) to `$HERMES_HOME`. Each capped at 15K characters (75% of Hermes's 20K system prompt slot); oversized cards are compressed via a one-shot LLM distillation pass.
-- **OpenClaw** writes `SOUL.md` + an `AGENTS.md` managed section + `IDENTITY.md` to the workspace.
+- **Hermes** writes `SOUL.md` + `HERMES.md` (project-context lorebook) to `$HERMES_HOME`. Per-file budget: 15K characters.
+- **OpenClaw** writes `SOUL.md` + an `AGENTS.md` managed section + `IDENTITY.md` to the workspace. Per-file budget: 9K characters.
+
+When a card exceeds its runtime's budget, SoulTavern v2.0 hands the agent an **agent-driven oversized flow**: the parsed source is staged on disk, the calling agent redistributes content into eight V2 categories (identity / personality / scenario / etc.), and a `finalize` step assembles the curated `SOUL.md`. Faithful-to-source wording is the rule — the agent picks what to keep, not how to phrase it.
 
 For the technical detail, [SoulTavern's README](https://github.com/imphillip/SoulTavern) is the canonical reference. Lineage: `TavernAI → SillyTavern → HermesTavern → SoulTavern`.
 

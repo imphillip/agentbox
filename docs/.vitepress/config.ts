@@ -45,6 +45,10 @@ export default defineConfig({
               text: "What's in the box?",
               link: '/background/whats-in-the-box',
             },
+            {
+              text: 'Most of an autonomous agent is missing.',
+              link: '/background/most-of-an-agent-is-missing',
+            },
           ],
         },
       ],

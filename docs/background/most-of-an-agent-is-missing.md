@@ -32,12 +32,18 @@ That isn't a criticism of those products. It's a statement about which slots hav
 
 ## What this means for what we're doing
 
-agentbox started naïvely. The first sketch — *agents.directory*, with all seven primitives offered by one vendor — was a category mistake we caught early. The next was *agent directory + mailbox-as-contact* — also wrong, because we didn't yet have the runtime-spectrum picture that would tell us the directory part wasn't ours to claim.
+agentbox started as a mailbox. Plainly — one Guardian, IMAP/SMTP, an inbox an AI agent could be reached at. The product has been mailbox-shaped from day one and still is.
 
-Where we landed is narrower and more honest: agentbox is building the address layer. One slot of seven. We have opinions about a couple of the others — identity (via [SoulTavern](https://github.com/imphillip/SoulTavern) and the soul-loader skill), attention (via the AAR spec) — and we've written things down. Most of the remaining slots we won't run at all. Compute is E2B's job. Memory is Pinecone's job. Wallet is somebody-Anthropic-or-crypto's job.
+What's moved is the framing around it. We've sketched a couple of possible pivots and stepped back from each. The mockup below was one of them — *agents.directory v0.2*, a single vendor offering all the primitives in one place. We caught it as a category mistake (a directory of *agents* shouldn't be listing the things agents *use*) and shelved it without shipping.
+
+![A discarded agentbox design mockup labeled "agents.directory v0.2 alpha — autonomous agents directory." Six dark cards in a grid: Agent Mailbox (available), Identity Verification (in development), Serverless Compute (waitlist), Agent Wallets (in development), Vector Memory Store (planned), Agent Swarm RPC (planned). Footer reads "universal standard — framework-agnostic." Kept here for honesty.](assets/agent-components.jpg)
+
+A second sketch — *agent directory + mailbox-as-contact* — was also wrong for similar reasons, because we didn't yet have the runtime-spectrum picture that would tell us the directory part wasn't ours to claim. We didn't ship that either.
+
+What we actually ship today is still the mailbox. One slot. We have opinions about a couple of the others — identity (via [SoulTavern](https://github.com/imphillip/SoulTavern) and the soul-loader skill), attention (via the AAR spec) — and we've written things down. Whether agentbox ends up running more slots than just mailbox is an open question. Most we probably won't: compute is E2B's job, memory is Pinecone's job, wallet is somebody-Anthropic-or-crypto's job. But "agentbox is just the address layer" is a sub-claim we're not committing to. We ship a mailbox, we have opinions, we'll let the rest of the picture clarify before we commit to more.
 
 The seven-slot picture isn't a market analysis. It's a shopping list for the autonomous agent that doesn't exist yet. Some items on the list have multiple vendors; most have zero. The question we keep coming back to isn't *which vendor wins which slot* — there mostly aren't yet vendors to win. It's *who needs to convince whom that this entire layer is worth building*.
 
-The honest answer right now: probably nobody, yet. So we're building one slot of it anyway. The address layer has obvious value the moment anyone wants to reach a chatbot, and that value doesn't depend on the rest of the stack arriving. When the rest does arrive — and we believe it will, on the [twelve-to-eighteen-month-or-longer timeline](./whats-in-the-box) we've sketched elsewhere — the address will already be in place.
+The honest answer right now: probably nobody, yet. So we're building one slot of it anyway. A mailbox has obvious value the moment anyone wants to reach a chatbot, and that value doesn't depend on the rest of the stack arriving. When the rest does arrive — and we believe it will, on the [twelve-to-eighteen-month-or-longer timeline](./whats-in-the-box) we've sketched elsewhere — the mailbox will already be in place, and we'll see from there what else makes sense to build.
 
 If you want a less hopeful framing: most of an autonomous agent is missing, and most products that claim otherwise are decorated chatbots. If you want the more hopeful one: most of an autonomous agent is missing, and that's a long list of slots that don't have a vendor yet — including the one we picked.

@@ -4,6 +4,8 @@
 
 Free. SillyTavern V2 format. Hermes and OpenClaw runtime targets in production; GenericAgent fallback shipping later.
 
+![Stylized scene. On the left, a row of glowing anime-style V2 character cards. On the right, a futuristic agent-runtime console with identity nodes wired into a network. Streams of light flow from the cards into the console — souls becoming agents.](./assets/souls-to-runtime.jpg)
+
 ## Status
 
 Alpha. The catalogue is small but hand-curated; the install flow is wired up; sign-in / per-user history is intentionally paused while the rest of the alpha shakes out.

@@ -18,6 +18,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Mailbox', link: '/mailbox' },
       { text: 'Soul Store', link: '/soul-store' },
       { text: 'Background', link: '/background/' },
       { text: 'agentbox.id', link: 'https://agentbox.id' },

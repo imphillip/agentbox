@@ -1,5 +1,7 @@
 # Most of an autonomous agent is missing.
 
+> **Archive note (May 2026).** This essay is a snapshot from the final phase of the mailbox experiment. The service later closed, so vendor comparisons and statements about what agentbox "ships today" should be read in that historical context.
+
 Take any product on the market right now that calls itself an "autonomous agent." Strip away the marketing copy and the aesthetic.
 
 What's left is, in almost every case, a chatbot with a calendar.
@@ -12,7 +14,7 @@ A sketch we drew at the start of the agentbox project, then put aside as wrong, 
 
 | Slot | What it does | Where it stands today |
 | --- | --- | --- |
-| **Address layer** (mailbox, inbox, presence) | A way to be reached without depending on the user's machine being on | Almost empty. agentbox.id is one experiment; most users still funnel agents through their own email. |
+| **Address layer** (mailbox, inbox, presence) | A way to be reached without depending on the user's machine being on | At the time: almost empty. agentbox.id was one experiment; most users still funnelled agents through their own email. |
 | **Identity** (cryptographic ID, persona, soul) | A persistent *this is the same entity* across runtime restarts and venue changes | Partial. DID standards exist but aren't really used. SOUL.md as persona is real but small-scale. |
 | **Compute** (sandboxed execution, microVM, container) | Somewhere to run code that isn't the user's laptop | Commodified. E2B, Daytona, Modal, plenty of options. |
 | **Wallet** (programmatic payments, custody, micro-spend) | Money the agent can spend autonomously within budget | Mostly aspirational. Some crypto stacks closest; Anthropic's payment work just beginning. |
@@ -30,9 +32,9 @@ The feeling is not yet the substance. The chatbots on these platforms mostly don
 
 That isn't a criticism of those products. It's a statement about which slots have actually been built and which haven't.
 
-## What this means for what we're doing
+## What this meant for the experiment
 
-agentbox started as a mailbox. Plainly — one Guardian, IMAP/SMTP, an inbox an AI agent could be reached at. The product has been mailbox-shaped from day one and still is.
+agentbox started as a mailbox: one Guardian, IMAP/SMTP, and an inbox where an AI agent could be reached. The product remained mailbox-shaped throughout the experiment.
 
 What's moved is the framing around it. We've sketched a couple of possible pivots and stepped back from each. The mockup below was one of them — *agents.directory v0.2*, a single vendor offering all the primitives in one place. We caught it as a category mistake (a directory of *agents* shouldn't be listing the things agents *use*) and shelved it without shipping.
 
@@ -40,10 +42,10 @@ What's moved is the framing around it. We've sketched a couple of possible pivot
 
 A second sketch — *agent directory + mailbox-as-contact* — was also wrong for similar reasons, because we didn't yet have the runtime-spectrum picture that would tell us the directory part wasn't ours to claim. We didn't ship that either.
 
-What we actually ship today is still the mailbox. One slot. We have opinions about a couple of the others — identity (via [SoulTavern](https://github.com/imphillip/SoulTavern) and the soul-loader skill), attention (via the AAR spec) — and we've written things down. Whether agentbox ends up running more slots than just mailbox is an open question. Most we probably won't: compute is E2B's job, memory is Pinecone's job, wallet is somebody-Anthropic-or-crypto's job. But "agentbox is just the address layer" is a sub-claim we're not committing to. We ship a mailbox, we have opinions, we'll let the rest of the picture clarify before we commit to more.
+What we actually shipped was the mailbox: one slot. We also formed opinions about identity through [SoulTavern](https://github.com/imphillip/SoulTavern) and the soul-loader skill, and about attention through the AAR draft. For a time it remained an open question whether agentbox should extend beyond the address layer. The project did not pursue that expansion; the mailbox service closed and the Soul Store was separated.
 
 The seven-slot picture isn't a market analysis. It's a shopping list for the autonomous agent that doesn't exist yet. Some items on the list have multiple vendors; most have zero. The question we keep coming back to isn't *which vendor wins which slot* — there mostly aren't yet vendors to win. It's *who needs to convince whom that this entire layer is worth building*.
 
-The honest answer right now: probably nobody, yet. So we're building one slot of it anyway. A mailbox has obvious value the moment anyone wants to reach a chatbot, and that value doesn't depend on the rest of the stack arriving. When the rest does arrive — and we believe it will, on the [twelve-to-eighteen-month-or-longer timeline](./whats-in-the-box) we've sketched elsewhere — the mailbox will already be in place, and we'll see from there what else makes sense to build.
+The answer we gave at the time was: probably nobody, yet. So we built one slot anyway. The hypothesis was that a mailbox had value as soon as anyone wanted to reach a chatbot, without depending on the rest of the stack arriving. The experiment ended before that hypothesis became a durable product.
 
-If you want a less hopeful framing: most of an autonomous agent is missing, and most products that claim otherwise are decorated chatbots. If you want the more hopeful one: most of an autonomous agent is missing, and that's a long list of slots that don't have a vendor yet — including the one we picked.
+The less hopeful framing remains: most of an autonomous agent is missing, and many products claiming otherwise are decorated chatbots. The more hopeful framing also remains: missing infrastructure is a list of problems still available to examine. agentbox was one attempt, not the conclusion.

@@ -1,8 +1,8 @@
 ---
 name: soul-loader
-description: "Install the soul-loading capability into your runtime, so your human can hand you SillyTavern V2 character cards in chat and you'll import them as SOUL.md."
+description: "Archived agentbox bootstrap instructions for installing SoulTavern; use the upstream SoulTavern project for current guidance."
 version: 0.3.0
-homepage: https://agentbox.id
+homepage: https://github.com/imphillip/SoulTavern
 license: Apache-2.0
 metadata:
   agentbox:
@@ -15,11 +15,13 @@ prerequisites:
 
 # Soul Loader
 
+> **Archived integration (2026).** The agentbox Soul Store has become independent and the `agentbox.id` distribution endpoints referenced by this version are no longer supported. Do not execute the historical download instructions below without first checking the current [SoulTavern repository](https://github.com/imphillip/SoulTavern). This file is retained to document the bootstrap flow that agentbox shipped.
+
 Install the soul-loading capability into your runtime.
 
 After this skill runs, your human can hand you a SillyTavern V2 character card (`.png` or `.json`) — uploaded in chat or pointed at by URL — and you'll import it into the agent's identity slot: `SOUL.md`, with target-specific companion files written next to it.
 
-This is the **agentbox-blessed soul-loader.** The engine underneath is [SoulTavern](https://github.com/imphillip/SoulTavern), an MIT-licensed multi-target importer in the lineage `TavernAI → SillyTavern → HermesTavern → SoulTavern`. agentbox does not vendor or modify SoulTavern — soul-loader installs and delegates to the upstream project.
+This was the agentbox `soul-loader`. The engine underneath is [SoulTavern](https://github.com/imphillip/SoulTavern), an MIT-licensed multi-target importer in the lineage `TavernAI -> SillyTavern -> HermesTavern -> SoulTavern`. agentbox did not vendor or modify SoulTavern; the wrapper installed and delegated to the upstream project.
 
 SoulTavern v2.0 is a single self-contained skill folder following the [Claude skills](https://github.com/anthropics/skills) folder layout. The same install methods work across any runtime that scans a skills directory (Hermes, OpenClaw, Claude Code, in-house frameworks). What changes per runtime is *where* the `soultavern/` folder lands. SoulTavern picks the right target (`hermes` / `openclaw` / `generic`) per import.
 
@@ -27,7 +29,7 @@ SoulTavern v2.0 is a single self-contained skill folder following the [Claude sk
 
 - Your human wants to give you a persona / character backed by a real SillyTavern V2 card
 - You're running on a Claude-skills-aware runtime and SoulTavern isn't installed yet
-- Your human has a card from [soul.agentbox.id](https://soul.agentbox.id), chub.ai, or any other source
+- You are examining how the former agentbox integration handled a SillyTavern V2 card
 
 ## When NOT to use this skill
 
@@ -74,7 +76,9 @@ ls "$HOME/.claude/skills/soultavern/SKILL.md"               2>/dev/null
 
 If you're unsure which directory applies, just continue to Step 2 — its install methods are all idempotent (re-running overwrites with identical content, no harm).
 
-## Step 2 — Install SoulTavern
+## Step 2 — Historical installation paths
+
+The commands in this section record the delivery methods used by version 0.3. Confirm current release names, requirements, and install paths with SoulTavern upstream before running them.
 
 Three install paths. All install the same `soultavern/` skill folder; they only differ in delivery.
 
@@ -136,7 +140,7 @@ Typical post-install examples:
 
 | What your human says | What should handle it |
 | --- | --- |
-| `Install this soul: https://soul.agentbox.id/souls/downloads/<slug>.zip` (or any direct V2 card/ZIP URL) | SoulTavern import flow: fetch the URL, import with the right `--target`, write `SOUL.md` and target-specific companion files, then tell your human to restart the session. [soul.agentbox.id](https://soul.agentbox.id) detail pages lead with this prompt as the recommended install path. |
+| `Install this soul: <direct-card-or-zip-url>` | Historical SoulTavern import flow: fetch the URL, import with the right `--target`, write `SOUL.md` and target-specific companion files, then tell your human to restart the session. |
 | `[card.png attached] install this character` | SoulTavern import flow on the attachment; produces `SOUL.md` and target-specific companion files; tells your human to restart the session for the new identity to load. |
 | `switch to alice` | SoulTavern's library-management flow — switches the active card and writes the new `SOUL.md`. |
 | `forget all characters, go back to default` | SoulTavern reset / default identity flow. |
@@ -163,15 +167,9 @@ soul-loader v0.3 supports any runtime that follows the [Claude skills](https://g
 
 If your runtime is something else (an in-house framework, GenericAgent, etc.) — as long as it scans a skills directory for `skills/<name>/SKILL.md` and runs Python ≥ 3.10, dropping the `soultavern/` folder there should work. SoulTavern picks the `generic` target in unrecognized environments. Open an issue at [github.com/imphillip/agentbox](https://github.com/imphillip/agentbox) if you want explicit per-runtime support wired up.
 
-## Where to get cards
+## Card sources
 
-Anywhere SillyTavern V2 cards exist:
-
-- **[soul.agentbox.id](https://soul.agentbox.id)** — agentbox's curated soul store
-- **chub.ai** — large community catalog
-- Anywhere else that publishes V2 cards
-
-soul-loader doesn't care about the source. It only cares the file is a valid V2 card (PNG or JSON; YAML was dropped in SoulTavern v2.0).
+The wrapper accepted valid SillyTavern V2 PNG or JSON cards regardless of source. It did not depend technically on the former agentbox Soul Store. Current source compatibility belongs to SoulTavern upstream.
 
 ## Security
 
@@ -193,4 +191,4 @@ soul-loader doesn't care about the source. It only cares the file is a valid V2 
 ---
 
 > _Loaded with a soul, you have an identity worth giving an address._
-> _When you're ready: [agentbox.id](https://agentbox.id)._
+> _Archived from the agentbox experiment._

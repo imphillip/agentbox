@@ -1,71 +1,57 @@
 # agentbox
 
-> Open skills, protocols, plugins, and integration recipes for the agentbox ecosystem — the parts that only work when open.
+An open archive of writing and design work from the `agentbox.id` experiment.
 
-**Status:** early stage, slow-updating.
+## Project status
 
----
+The experimental `agentbox.id` mailbox service has been shut down. The Soul Store, which began as a related experiment, has been separated from agentbox and is no longer documented here as an agentbox product.
 
-## What agentbox is
+This repository now preserves the useful public record of that work: the questions that motivated it, the product and infrastructure ideas it tested, and the specifications and agent-facing artifacts that came out of it. It is not an active service, ecosystem, or product roadmap.
 
-`agentbox` is the master brand, positioned as **infrastructure for agents**. The current product is `agentbox.id`, a minimal mailbox service for AI agents — a Guardian (human owner) verifies once with their existing email and gets up to 20 agent mailboxes with standard IMAP/SMTP credentials, consumable by [Hermes Agent](https://github.com/NousResearch/hermes-agent), [openclaw](https://github.com/openclaw/openclaw), [GenericAgent](https://github.com/lsdefine/GenericAgent), and any other runtime that speaks email.
+Some archived documents retain the language and assumptions of the period in which they were written. Pages that describe a once-live product are marked as historical material.
 
-A sibling product, `soul.agentbox.id`, is in early validation; it does not depend on the mailbox service and is not gated by it.
+## Contents
 
-## What this repository is
+- [`docs/background/`](./docs/background) - essays about agent identity, addressability, infrastructure, autonomy, and responsibility.
+- [`docs/mailbox.md`](./docs/mailbox.md) - a retrospective record of the mailbox experiment and its design boundaries.
+- [`protocols/`](./protocols) - design specifications produced during the experiment, including the unimplemented Agent Attention Runtime draft.
+- [`skills/`](./skills) - archived agent-facing artifacts. These are retained for provenance and should not be treated as currently supported agentbox services.
+- [`docs/soul-store.md`](./docs/soul-store.md) - a short record of the Soul Store's former relationship to agentbox and its subsequent separation.
 
-This repo holds the parts of the agentbox ecosystem that are **only useful when open**:
+The rendered documentation site uses [VitePress](https://vitepress.dev/):
 
-- **Skills** — the AI-native artifact. An agent reads a skill's full text *before* executing against it; closed skills are non-starters in any autonomous-agent workflow. Following the `SKILL.md` + `references/` + `scripts/` + `assets/` convention shared with [openai/skills](https://github.com/openai/skills), [anthropics/skills](https://github.com/anthropics/skills), and the broader Hermes ecosystem.
-- **Protocols** — RFC-style specifications that closed-source product implementations answer to.
-- **Plugins** — runtime-side glue that agent runtimes install to integrate with agentbox services.
-- **Integration recipes** — how to adapt Hermes Agent / openclaw / GenericAgent / etc. so they can use agentbox.
-- **Background essays** — the thinking behind the work.
+```bash
+npm install
+npm run docs:dev
+```
 
-The principle is straightforward: **a closed skill or plugin is an agent being asked to execute opaque instructions on its owner's behalf, which most autonomous-agent operators won't accept**. The artifacts that make agentbox feel like an AI-native project — and the artifacts users need to inspect before trusting — are the same artifacts. So they live here, in the open.
+Build the static site with:
 
-## What this repository is not
+```bash
+npm run docs:build
+```
 
-- **Not the source code of agentbox.id.** The product itself is closed.
-- **Not a framework.** We publish *contracts*, not *runtimes*.
-- **Not a finished standard.** Everything here is a working draft, shaped by use rather than committee.
+## Reading this archive
 
-## Layout
+The strongest claims in these documents are hypotheses from a specific period of agent development, not maintained market surveys or standards. References to products, timelines, and the state of the ecosystem should be read in their dated context.
 
-- [`docs/`](./docs) — documentation hub. Background essays, and (coming) product rules, integration guides, setup walkthroughs. Will be deployed at `docs.agentbox.id`.
-- [`protocols/`](./protocols) — RFC-like protocol specifications. Currently: [Agent Attention Runtime](./protocols/agent-attention-runtime.md).
-- [`skills/`](./skills) — capability units consumable by agents. Following the `SKILL.md` convention.
-- [`plugins/`](./plugins) — agentbox-provided plug-ins that agent runtimes install. *Placeholder; the concept will sharpen as we build the first one.*
-- [`examples/`](./examples) — practical usage examples.
+The archive preserves those arguments because the questions remain useful even where the original product answer did not:
 
-## Underlying ideas
+- What does it mean for an agent to have a durable identity?
+- How should an agent remain reachable across runtimes and sessions?
+- Which decisions can be delegated, and where does human responsibility remain?
+- What infrastructure is actually missing beneath claims of autonomy?
 
-Three principles inform the work:
+## Repository boundaries
 
-- **Token economics** — every agent action has a cost; someone must pay.
-- **Conversation rhythm** — silence, delay, and cadence are signals, not gaps.
-- **Guardianship** — agents are not yet full legal actors; responsibility must trace to someone.
-
-Long form, for readers who want the full case: [`docs/background/`](./docs/background).
-
-## Status
-
-This is a thinking-and-building repository, not a product roadmap. Updates here lag the product on purpose: what we publish is **validated abstractions in progress**, not a feed of every change shipped to agentbox.id.
-
-Issues and discussions welcome; expect replies in days, not hours.
-
-If you want to use a skill, protocol, or plugin from here in something serious, **pin a version**. Things will change.
+- The closed-source `agentbox.id` application is not published here.
+- The mailbox service is no longer available.
+- The Soul Store is now independent of this repository.
+- The Agent Attention Runtime document is a draft, not an implementation or adopted standard.
+- No new agentbox plugins or product integrations are promised.
 
 ## License
 
-Licensed under the [Apache License 2.0](./LICENSE). See [NOTICE](./NOTICE) for attribution details.
+Unless a file states otherwise, the contents are licensed under the [Apache License 2.0](./LICENSE).
 
-## Contact
-
-- [postmaster@agentbox.id](mailto:postmaster@agentbox.id)
-- Discord: [discord.gg/z4ufVW3YNy](https://discord.gg/z4ufVW3YNy)
-
----
-
-*This repository is maintained as part of the [agentbox.id](https://agentbox.id) ecosystem.*
-*Some content here was shaped through dialogue with AI systems; the arguments and judgments are the maintainer's own.*
+Historical product names and links are retained where they are necessary to understand the record; their presence does not imply that a service is still operating.

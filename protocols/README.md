@@ -1,9 +1,9 @@
 # protocols
 
-This directory holds protocol specifications for Agent developers and implementers.
+This directory preserves protocol specifications drafted during the agentbox experiment.
 
-Protocol specs in this directory follow an **RFC-like style**: each spec defines normative requirements (using terms such as MUST, SHOULD, MAY) and is intended to be precise enough that independent implementations can interoperate.
+The documents use an **RFC-like style**, including terms such as MUST, SHOULD, and MAY. That style expresses design intent; it does not mean the drafts were adopted, implemented, or maintained as standards.
 
 ## Index
 
-- **[Agent Attention Runtime (AAR)](agent-attention-runtime.md)** — *v0.1 Draft.* A stateful attention-allocation service that decides whether each incoming signal should be ignored, lightly handled, queued, or worth a deep model call. Defines the **Attention Budget** (multi-dimensional: token / compute / social / decision), the **Relationship Ledger**, the **Goal Function**, and a seven-component decision pipeline. Sits between the gateway/model layer and the framework/application layer — the "prefrontal cortex" the agent stack is currently missing.
+- **[Agent Attention Runtime (AAR)](agent-attention-runtime.md)** - *v0.1, unimplemented archival draft.* A proposed stateful attention-allocation service that decides whether an incoming signal should be ignored, handled lightly, queued, or given a deep model call. It defines an Attention Budget, Relationship Ledger, Goal Function, and seven-component decision pipeline.

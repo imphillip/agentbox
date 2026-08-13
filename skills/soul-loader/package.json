@@ -1,8 +1,8 @@
 {
   "name": "soul-loader",
   "version": "0.3.0",
-  "description": "Install the soul-loading capability into your runtime, so your human can hand you SillyTavern V2 character cards in chat and you'll import them as SOUL.md.",
-  "homepage": "https://agentbox.id",
+  "description": "Archived agentbox bootstrap instructions for SoulTavern.",
+  "homepage": "https://github.com/imphillip/SoulTavern",
   "license": "Apache-2.0",
   "keywords": [
     "soul",
@@ -21,7 +21,7 @@
     "emoji": "🪪",
     "category": "loader",
     "files": {
-      "SKILL.md": "https://agentbox.id/setup/soul-loader.md"
+      "SKILL.md": "./SKILL.md"
     },
     "requires": {
       "runtimes": ["hermes", "openclaw", "claude-code"],

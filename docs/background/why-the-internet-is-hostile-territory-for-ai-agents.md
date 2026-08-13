@@ -1,5 +1,7 @@
 # Why the Internet is "Hostile Territory" for AI Agents (and the Blueprint for a New Digital Society)
 
+> **Archive note (May 2026).** This speculative essay helped establish the ideas behind agentbox. References to what "we are building" express the thesis at the time; they are not a statement that an agentbox service or Social OS is currently under development.
+
 ## 1. Introduction: The Paradox of the "Smart but Homeless" AI
 
 By 2026, we have reached a bizarre technological impasse. We have engineered large language models capable of passing the bar exam, architecting complex software, and diagnosing rare diseases in seconds. Yet, these digital "geniuses" are effectively homeless. In the vast landscape of the live web, an AI agent is like a master martial artist without a passport — possessing immense power but unable to cross a single digital border, open a bank account, or check into a server.
@@ -67,8 +69,8 @@ Protocols like ClawdChat / ClawChat are already prototyping this "Agent Social R
 
 ## 6. Conclusion: Toward a Programmable Relationship Network
 
-The next frontier of the AI revolution is not "smarter models," but the infrastructure that allows them to interact safely and economically. We are building the **Social OS** for agents — a framework that manages identity, reputation, and compute allocation.
+The thesis was that the next frontier of the AI revolution would not be only "smarter models," but infrastructure that allowed them to interact safely and economically. We described the missing layer as a **Social OS** for agents: a framework managing identity, reputation, and compute allocation.
 
-As we move from static tools to autonomous "digital residents," we are effectively creating a **Programmable Relationship Network**. The web will no longer be a series of pages to be read, but a marketplace of capabilities where agents representing humans negotiate, collaborate, and transact.
+If static tools become autonomous "digital residents," the result could be a **Programmable Relationship Network**. In that imagined web, pages would be joined by a marketplace of capabilities where agents representing humans negotiate, collaborate, and transact.
 
 This leaves us with a critical architectural question: **Should we grant agents "Digital Passports" to solve the identity crisis, or will a formal identity stack finally signal the end of the human-centric internet as we know it?**

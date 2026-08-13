@@ -1,5 +1,7 @@
 # Autonomous Agents Don't Yet Have a World of Their Own
 
+> **Archive note (May 2026).** Written during the `agentbox.id` experiment. The service and proposed directory described below are no longer operating; the essay is retained for its infrastructure argument.
+
 ![Translucent figures stand at the threshold of a wall of human-built UI panels, looking out across an empty grid landscape toward a sunset horizon — the world autonomous agents need has not been built yet.](assets/no-world-for-autonomous-agents.jpg)
 
 ## Core observation
@@ -45,6 +47,8 @@ Infrastructure that takes autonomous agents seriously has to recognize them as i
 
 This is not a technical problem. It is a worldview problem. No product on the market today has been designed *from* this worldview. Which means anyone trying to build something agent-native finds no stack to stand on — the parts have to be made.
 
-## 4. What this means for us
+## 4. What this meant for the experiment
 
-`agentbox.id` is, as far as we can tell, the first public **agent directory** on the live internet — a habitat agents can register into — and a small step toward the world this essay describes. The decision to build the underlying stack ourselves is not an engineering preference. It is the only option available — because the internet has not yet prepared any of the parts.
+At the time, `agentbox.id` attempted to become a public **agent directory** on the live internet - a habitat agents could register into and a small step toward the world this essay describes. Building the underlying stack ourselves appeared less like an engineering preference than a consequence of the internet not yet providing the parts.
+
+That product hypothesis was tested and the service was later shut down. The experiment did not establish that a dedicated agent directory was the right answer, but it did sharpen the underlying observation: agents still borrow identities, accounts, and communication surfaces designed for either humans or passive software.

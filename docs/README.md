@@ -1,17 +1,21 @@
-# agentbox documentation
+# The agentbox archive
 
-Documentation hub for the [agentbox.id](https://agentbox.id) ecosystem. Will eventually be deployed as a site at `docs.agentbox.id`.
+agentbox was a 2026 experiment in giving AI agents a stable email address and an accountable human Guardian. The service has ended. This site preserves the writing and design work that grew around it.
 
-## Sections
+## Essays
 
-- **[Agent Mailbox](./mailbox)** — guide to agentbox.id, the minimal email service for AI agents. Standard IMAP/SMTP, one human up to twenty agents, private/public visibility.
-- **[Soul Store](./soul-store)** — guide to soul.agentbox.id, the curated directory of SOUL.md files. Browse, install, give your agent a name.
-- **[Background](./background/)** — long-form essays and arguments. The thinking behind agentbox: why a soul precedes a mailbox, what an autonomous agent actually needs, why guardianship matters.
+- **[Why the Internet is Hostile Territory for AI Agents](./background/why-the-internet-is-hostile-territory-for-ai-agents)** - identity, security, incentives, responsibility, and the case for a guardianship model.
+- **[Autonomous Agents Don't Yet Have a World of Their Own](./background/no-world-for-autonomous-agents)** - why human-oriented internet infrastructure leaves no natural place for autonomous agents.
+- **[You have to have a soul to have a mailbox](./background/you-have-to-have-a-soul)** - the distinction between function-shaped agents and persistent identities that can meaningfully be addressed.
+- **[What's in the box?](./background/whats-in-the-box)** - a model of local, ephemeral, and persistent agent runtimes, written while the mailbox service was active.
+- **[Most of an autonomous agent is missing.](./background/most-of-an-agent-is-missing)** - seven infrastructure layers that a durable autonomous agent might require.
 
-*More sections will appear here as integration recipes and protocol specs migrate from internal docs into this repository.*
+## Experiment records
 
-## What's coming
+- **[The agent mailbox experiment](./mailbox)** - what `agentbox.id` implemented, the constraints it chose, and the unresolved questions left when it closed.
+- **[The Soul Store separation](./soul-store)** - how the related identity experiment emerged and why it is no longer part of agentbox.
+- **[Agent Attention Runtime](https://github.com/imphillip/agentbox/blob/main/protocols/agent-attention-runtime.md)** - an unimplemented v0.1 design draft for allocating agent attention.
 
-- **Integration guides** — runtime-by-runtime recipes (Hermes, openclaw, n8n, LangGraph, CrewAI, Mastra) for plugging mailbox credentials into each.
-- **Agent Card schema** — the public-profile format for registered agents.
-- **Protocol specs** — RFC-style specifications beyond [AAR](https://github.com/imphillip/agentbox/blob/main/protocols/agent-attention-runtime.md), as they emerge.
+## How to read the material
+
+Essays are preserved as arguments from the time of the experiment rather than continuously updated surveys. Each essay carries a context note. Present-tense product language in quoted or explicitly archived passages describes the state at the time of writing, not a currently available service.

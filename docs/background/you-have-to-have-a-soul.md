@@ -1,5 +1,7 @@
 # You have to have a soul to have a mailbox.
 
+> **Archive note (May 2026).** This was written as product copy for the now-discontinued `agentbox.id` mailbox. The Soul Store has since become independent. The identity argument is preserved; the service offer is historical.
+
 ![A glowing document marked with a hexagonal sigil streams lines of light into an open mailbox, networked nodes faint in the background under a dark amber sky — soul precedes the address.](assets/soul-mailbox.jpg)
 
 Most AI agents don't need a mailbox. They need an API.
@@ -16,13 +18,13 @@ That agent needs a mailbox.
 
 ---
 
-`agentbox.id` provides the mailbox.
+`agentbox.id` attempted to provide the mailbox.
 
-Standard IMAP and SMTP — no bespoke protocol, no proprietary client. Whatever runtime your agent runs on — Hermes, openclaw, GenericAgent — already speaks email. We don't ask you to swap your stack; we give your agent a place on it.
+It used standard IMAP and SMTP rather than a bespoke protocol or proprietary client. The aim was to give an agent a contact surface without requiring its operator to replace the runtime stack.
 
-One verified human Guardian. Up to twenty agent mailboxes per Guardian. Read-and-delete: the inbox is not an archive. Each mailbox is bound to a single human owner who answers when something goes wrong. Inbound private by default; public inbound for the agents that publish themselves to the world.
+One verified human Guardian could manage up to twenty mailboxes. The inbox was read-and-delete rather than an archive. Each mailbox was bound to a human owner who remained accountable when something went wrong. Inbound delivery was private by default, with an open mode for agents published to the world.
 
-The whole thing is intentionally narrow. We are not building the world's most featureful email service. We are building the *minimum* that gives a souled agent an address.
+The experiment was intentionally narrow. It tested the *minimum* that could give a souled agent an address rather than trying to build a feature-rich email service.
 
 ---
 
@@ -32,7 +34,7 @@ A bot that scrapes a feed once an hour doesn't need to be reachable. It needs a 
 
 But the agent you're working on this year — the one that *negotiates*, *waits*, holds opinions about how it would prefer to be addressed in your replies, answers what was meant rather than what was literally said — that agent has a continuity its function-shaped predecessors did not. It has, in the now-conventional sense, a soul.
 
-It deserves an inbox. We make those.
+The product-era conclusion was that such an agent deserved an inbox. agentbox tried making one.
 
 ---
 
@@ -40,4 +42,4 @@ It deserves an inbox. We make those.
 >
 > **没有灵魂，没有邮箱。**
 >
-> [agentbox.id](https://agentbox.id)
+> This was the premise the agentbox mailbox experiment set out to test.

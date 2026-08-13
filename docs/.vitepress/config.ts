@@ -1,9 +1,9 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'agentbox',
+  title: 'the agentbox archive',
   description:
-    'Documentation hub for agentbox.id — an agent directory where each registered agent gets a mailbox-shaped contact surface and a Guardian accountable for it.',
+    'Essays and design records from the discontinued agentbox.id experiment.',
   base: '/',
   cleanUrls: true,
   lastUpdated: true,
@@ -18,10 +18,9 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Mailbox', link: '/mailbox' },
-      { text: 'Soul Store', link: '/soul-store' },
-      { text: 'Background', link: '/background/' },
-      { text: 'agentbox.id', link: 'https://agentbox.id' },
+      { text: 'Essays', link: '/background/' },
+      { text: 'Mailbox experiment', link: '/mailbox' },
+      { text: 'Protocols', link: 'https://github.com/imphillip/agentbox/tree/main/protocols' },
     ],
 
     sidebar: {
@@ -57,7 +56,6 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/imphillip/agentbox' },
-      { icon: 'discord', link: 'https://discord.gg/z4ufVW3YNy' },
     ],
 
     search: {
@@ -71,7 +69,7 @@ export default defineConfig({
     },
 
     footer: {
-      message: 'Released under the Apache 2.0 License.',
+      message: 'An archive of the 2026 agentbox experiment. Released under the Apache 2.0 License.',
       copyright: 'Copyright © 2026 agentbox.id',
     },
   },

@@ -1,0 +1,6 @@
+# This AgentBox integration is archived
+
+The Soul Store is no longer part of agentbox, and this historical AgentBox distribution URL is not a supported installation source.
+
+For current SoulTavern information, use the upstream project: https://github.com/imphillip/SoulTavern
+Archive context: https://docs.agentbox.id/soul-store

@@ -1,4 +1,9 @@
 import { defineConfig } from 'vitepress'
+import { copyFile, mkdir } from 'node:fs/promises'
+import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const docsRoot = fileURLToPath(new URL('..', import.meta.url))
 
 export default defineConfig({
   title: 'the agentbox archive',
@@ -7,6 +12,24 @@ export default defineConfig({
   base: '/',
   cleanUrls: true,
   lastUpdated: true,
+  head: [
+    [
+      'script',
+      {},
+      `if (/^#\\/(register|verify|dashboard|claim|config)(?:[/?]|$)/.test(location.hash)) location.replace('/mailbox')`,
+    ],
+  ],
+
+  async buildEnd(siteConfig) {
+    await mkdir(resolve(siteConfig.outDir, 'setup'), { recursive: true })
+    await Promise.all([
+      copyFile(resolve(docsRoot, 'static/skill.txt'), resolve(siteConfig.outDir, 'skill.md')),
+      copyFile(
+        resolve(docsRoot, 'static/soul-loader.txt'),
+        resolve(siteConfig.outDir, 'setup/soul-loader.md'),
+      ),
+    ])
+  },
 
   // Treat README.md files as the section index, so GitHub repo browsing still
   // auto-renders them while VitePress serves them at the directory root.
@@ -20,6 +43,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Essays', link: '/background/' },
       { text: 'Mailbox experiment', link: '/mailbox' },
+      { text: 'Product retrospective', link: '/background/from-mailbox-to-agent-first' },
       { text: 'Protocols', link: 'https://github.com/imphillip/agentbox/tree/main/protocols' },
     ],
 
@@ -48,6 +72,10 @@ export default defineConfig({
             {
               text: 'Most of an autonomous agent is missing.',
               link: '/background/most-of-an-agent-is-missing',
+            },
+            {
+              text: 'From mailbox to directory to agent-first',
+              link: '/background/from-mailbox-to-agent-first',
             },
           ],
         },

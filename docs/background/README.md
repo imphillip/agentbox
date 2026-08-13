@@ -11,3 +11,4 @@ The experimental `agentbox.id` service has ended, and the Soul Store has become 
 - **[You have to have a soul to have a mailbox](you-have-to-have-a-soul.md)** - a short product-era essay asking why function-shaped agents need APIs while persistent identities might need addresses.
 - **[What's in the box?](whats-in-the-box.md)** - the proposed spectrum of local, ephemeral, and cloud-resident agent runtimes, and the original argument for locating agentbox at the address layer.
 - **[Most of an autonomous agent is missing.](most-of-an-agent-is-missing.md)** - seven infrastructure layers a durable autonomous agent might require, and a snapshot of how incomplete they appeared during the experiment.
+- **[From mailbox to directory to agent-first](from-mailbox-to-agent-first.md)** - a post-shutdown reconstruction of the product's shift from human signup, to Guardian-managed agents, to an agent-first flow that the control plane could not yet complete.

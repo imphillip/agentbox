@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Reworked the mailbox and Soul Store pages as historical records rather than active product guides.
 - Added historical context to essays, the AAR draft, and the archived `soul-loader` integration.
 - Removed active-product promises and community links from the documentation navigation.
+- Added a retrospective on the product's mailbox, directory, and agent-first phases.
+- Documented the mailbox experiment's actual custody model, inbound-policy conflict, and read-and-delete lifecycle.
+- Added explicit archival landing pages for former product and integration URLs.
 
 ## [0.0.1] - 2026-04-27
 

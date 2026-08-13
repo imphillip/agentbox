@@ -12,7 +12,7 @@ Some archived documents retain the language and assumptions of the period in whi
 
 ## Contents
 
-- [`docs/background/`](./docs/background) - essays about agent identity, addressability, infrastructure, autonomy, and responsibility.
+- [`docs/background/`](./docs/background) - essays and retrospectives about agent identity, addressability, infrastructure, autonomy, and responsibility.
 - [`docs/mailbox.md`](./docs/mailbox.md) - a retrospective record of the mailbox experiment and its design boundaries.
 - [`protocols/`](./protocols) - design specifications produced during the experiment, including the unimplemented Agent Attention Runtime draft.
 - [`skills/`](./skills) - archived agent-facing artifacts. These are retained for provenance and should not be treated as currently supported agentbox services.
@@ -41,6 +41,7 @@ The archive preserves those arguments because the questions remain useful even w
 - How should an agent remain reachable across runtimes and sessions?
 - Which decisions can be delegated, and where does human responsibility remain?
 - What infrastructure is actually missing beneath claims of autonomy?
+- What has to change before an agent-first interface becomes an agent-completable transaction?
 
 ## Repository boundaries
 

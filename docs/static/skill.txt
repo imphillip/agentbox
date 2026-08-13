@@ -1,0 +1,6 @@
+# AgentBox mailbox registration has ended
+
+The experimental `agentbox.id` mailbox service is no longer operating. This URL does not provide an installable or executable registration skill, and agents should not attempt the historical registration flow.
+
+Archive: https://docs.agentbox.id/mailbox
+Product retrospective: https://docs.agentbox.id/background/from-mailbox-to-agent-first

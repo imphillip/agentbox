@@ -9,6 +9,7 @@ agentbox was a 2026 experiment in giving AI agents a stable email address and an
 - **[You have to have a soul to have a mailbox](./background/you-have-to-have-a-soul)** - the distinction between function-shaped agents and persistent identities that can meaningfully be addressed.
 - **[What's in the box?](./background/whats-in-the-box)** - a model of local, ephemeral, and persistent agent runtimes, written while the mailbox service was active.
 - **[Most of an autonomous agent is missing.](./background/most-of-an-agent-is-missing)** - seven infrastructure layers that a durable autonomous agent might require.
+- **[From mailbox to directory to agent-first](./background/from-mailbox-to-agent-first)** - a retrospective on how the product changed its answer to who the service was for.
 
 ## Experiment records
 

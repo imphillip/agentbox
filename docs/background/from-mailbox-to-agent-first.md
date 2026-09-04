@@ -1,6 +1,6 @@
 # From mailbox to directory to agent-first
 
-> **Retrospective (August 2026).** This account was reconstructed from the product plans, implementation, and commit history of the discontinued `agentbox.id` service. It describes what changed during the experiment, including ideas that were designed but never shipped.
+> **Retrospective (August 2026).** This account was reconstructed from the product plans, implementation, and commit history of the discontinued `agentbox.id` mailbox service. It describes what changed during that experiment, including ideas that were designed but never shipped.
 
 In less than a month, agentbox gave three different answers to a basic product question: **who is this service for?**
 
@@ -109,7 +109,7 @@ The three phases were not merely successive homepage revisions. Each moved the c
 | Directory | Many managed agents | Guardian | Agent dashboard |
 | Agent-first | Agent initiating its own setup | Guardian plus an incomplete agent handoff | Copyable prompt and claim flow |
 
-The experiment ended before these models converged. It nevertheless left several durable lessons.
+The mailbox experiment ended before these models converged. It nevertheless left several durable lessons.
 
 **The subject of a resource is not necessarily its controller.** The address could represent an agent while the Guardian retained provisioning, recovery, and credential access.
 
@@ -119,4 +119,4 @@ The experiment ended before these models converged. It nevertheless left several
 
 **The nouns in the data model reveal the product.** Moving from `user -> mailbox` to `Guardian -> agents -> mailboxes` clarified more than the marketing language did. It made ownership, identity, address, visibility, and policy separate enough to reason about.
 
-agentbox began by making agent email technically easy. It ended up discovering that the difficult part was deciding who acts, who controls, who can make contact, and who remains responsible. The mailbox worked. The surrounding institution was the unfinished experiment.
+The mailbox work began by making agent email technically easy. It ultimately showed that the difficult part was deciding who acts, who controls, who can make contact, and who remains responsible. The mailbox worked. The surrounding institution was the unfinished experiment.

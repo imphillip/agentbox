@@ -6,9 +6,9 @@ import { fileURLToPath } from 'node:url'
 const docsRoot = fileURLToPath(new URL('..', import.meta.url))
 
 export default defineConfig({
-  title: 'the agentbox archive',
+  title: 'agentbox',
   description:
-    'Essays and design records from the discontinued agentbox.id experiment.',
+    'Essays, design notes, and ongoing explorations of infrastructure for AI agents.',
   base: '/',
   cleanUrls: true,
   lastUpdated: true,
@@ -101,7 +101,7 @@ export default defineConfig({
     },
 
     footer: {
-      message: 'An archive of the 2026 agentbox experiment. Released under the Apache 2.0 License.',
+      message: 'An ongoing exploration of infrastructure for AI agents. Released under the Apache 2.0 License.',
       copyright: 'Copyright © 2026 agentbox.id',
     },
   },

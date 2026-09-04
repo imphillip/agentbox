@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Repositioned the repository as an archive of the discontinued `agentbox.id` experiment.
+- Clarified agentbox as an ongoing exploration whose current public form is its essays and documentation.
 - Reworked the mailbox and Soul Store pages as historical records rather than active product guides.
 - Added historical context to essays, the AAR draft, and the archived `soul-loader` integration.
 - Removed active-product promises and community links from the documentation navigation.

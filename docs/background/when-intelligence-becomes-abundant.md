@@ -1,6 +1,6 @@
 # When Intelligence Becomes Abundant, What Remains Scarce?
 
-> **Essay (September 2026).** Written after the `agentbox.id` service closed, this note revisits the archive's runtime thesis in light of stronger models and the changing role of AI builders.
+> **Essay (September 2026).** Written after the `agentbox.id` mailbox service stopped, this note continues agentbox's runtime inquiry in light of stronger models and the changing role of AI builders.
 
 In May, while writing about the runtime spectrum for AI agents, I argued that compute was already becoming commodified. Containers, microVMs, browser sandboxes, and short-lived execution environments were increasingly easy to rent. The harder parts of a durable autonomous agent seemed to live elsewhere: identity, memory, event-driven wakeup, permissions, attention, and the ability to remain useful when no human terminal was open.
 
@@ -331,7 +331,7 @@ For a thin AI app generator, the answer may be less necessary.
 
 For a runtime that gives capable models a secure place to execute, it may be more useful. For a distribution network flooded with AI-generated content, it may be more useful. For an identity, permission, or transaction layer that has to govern increasingly capable agents, it may be much more useful.
 
-That is the shift I did not fully appreciate when agentbox was active.
+That is the shift I did not fully appreciate while the agentbox mailbox service was active.
 
 The interesting scarcity is moving away from intelligence.
 
@@ -347,5 +347,5 @@ It is moving toward the world intelligence needs in order to act.
 - Replit, [**Replit is now available in Claude**](https://replit.com/blog/replit-claude), June 17, 2026.
 - Replit, [**Now You Can Build with Replit in ChatGPT**](https://replit.com/blog/replit-in-chatgpt), updated January 22, 2026.
 - Aippy / PR Newswire, [**Aippy Raises Tens of Millions of Dollars at a $250 Million Valuation to Build the Future of AI-Native Interactive Entertainment**](https://www.prnewswire.com/apac/news-releases/aippy-raises-tens-of-millions-of-dollars-at-a-250-million-valuation-to-build-the-future-of-ai-native-interactive-entertainment-302787864.html), June 2, 2026.
-- agentbox archive, [**What's in the box?**](./whats-in-the-box.md).
-- agentbox archive, [**Most of an autonomous agent is missing.**](./most-of-an-agent-is-missing.md).
+- agentbox, [**What's in the box?**](./whats-in-the-box.md).
+- agentbox, [**Most of an autonomous agent is missing.**](./most-of-an-agent-is-missing.md).

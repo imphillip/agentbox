@@ -1,14 +1,14 @@
 # agentbox
 
-An open archive of writing and design work from the `agentbox.id` experiment.
+An open collection of essays, design notes, and experiments about infrastructure for AI agents.
 
 ## Project status
 
-The experimental `agentbox.id` mailbox service has been shut down. The Soul Store, which began as a related experiment, has been separated from agentbox and is no longer documented here as an agentbox product.
+agentbox remains an ongoing exploration. Its current public form is this repository and the documentation site: a place for essays, design work, and new attempts rather than a running hosted product.
 
-This repository now preserves the useful public record of that work: the questions that motivated it, the product and infrastructure ideas it tested, and the specifications and agent-facing artifacts that came out of it. It is not an active service, ecosystem, or product roadmap.
+The earlier `agentbox.id` mailbox service has been shut down. The Soul Store, which began as a related experiment, has been separated from agentbox and is no longer documented here as an agentbox product. Their records remain because the questions they exposed continue to shape the project.
 
-Some archived documents retain the language and assumptions of the period in which they were written. Pages that describe a once-live product are marked as historical material.
+Some documents retain the language and assumptions of the period in which they were written. Pages that describe the former mailbox product are marked as historical material; newer essays reflect the exploration as it continues.
 
 ## Contents
 
@@ -31,11 +31,11 @@ Build the static site with:
 npm run docs:build
 ```
 
-## Reading this archive
+## Reading this project
 
 The strongest claims in these documents are hypotheses from a specific period of agent development, not maintained market surveys or standards. References to products, timelines, and the state of the ecosystem should be read in their dated context.
 
-The archive preserves those arguments because the questions remain useful even where the original product answer did not:
+The project keeps those arguments because the questions remain useful even where the original product answer did not:
 
 - What does it mean for an agent to have a durable identity?
 - How should an agent remain reachable across runtimes and sessions?

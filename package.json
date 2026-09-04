@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Archive of writing and design work from the agentbox.id experiment",
+  "description": "Essays, design notes, and explorations of infrastructure for AI agents",
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",

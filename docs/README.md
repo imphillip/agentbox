@@ -1,6 +1,8 @@
-# The agentbox archive
+# agentbox
 
-agentbox was a 2026 experiment in giving AI agents a stable email address and an accountable human Guardian. The service has ended. This site preserves the writing and design work that grew around it.
+agentbox is an ongoing exploration of the identity, addressability, runtime, and governance infrastructure that AI agents may need. For now, its public form is this collection of essays and design documents.
+
+The earlier `agentbox.id` mailbox service is no longer operating, and the Soul Store has become independent. Their records remain here as context for the questions the project continues to examine.
 
 ## Essays
 
@@ -20,4 +22,4 @@ agentbox was a 2026 experiment in giving AI agents a stable email address and an
 
 ## How to read the material
 
-Essays are preserved as arguments from the time of the experiment rather than continuously updated surveys. Each essay carries a context note. Present-tense product language in quoted or explicitly archived passages describes the state at the time of writing, not a currently available service.
+The essays include both current notes and arguments from earlier stages of the project. Each dated essay should be read in its own context rather than as a continuously updated market survey. Present-tense mailbox language in historical passages describes the service at the time of writing, not a currently available product.

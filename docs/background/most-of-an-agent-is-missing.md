@@ -46,6 +46,6 @@ What we actually shipped was the mailbox: one slot. We also formed opinions abou
 
 The seven-slot picture isn't a market analysis. It's a shopping list for the autonomous agent that doesn't exist yet. Some items on the list have multiple vendors; most have zero. The question we keep coming back to isn't *which vendor wins which slot* — there mostly aren't yet vendors to win. It's *who needs to convince whom that this entire layer is worth building*.
 
-The answer we gave at the time was: probably nobody, yet. So we built one slot anyway. The hypothesis was that a mailbox had value as soon as anyone wanted to reach a chatbot, without depending on the rest of the stack arriving. The experiment ended before that hypothesis became a durable product.
+The answer we gave at the time was: probably nobody, yet. So we built one slot anyway. The hypothesis was that a mailbox had value as soon as anyone wanted to reach a chatbot, without depending on the rest of the stack arriving. The mailbox experiment ended before that hypothesis became a durable product.
 
-The less hopeful framing remains: most of an autonomous agent is missing, and many products claiming otherwise are decorated chatbots. The more hopeful framing also remains: missing infrastructure is a list of problems still available to examine. agentbox was one attempt, not the conclusion.
+The less hopeful framing remains: most of an autonomous agent is missing, and many products claiming otherwise are decorated chatbots. The more hopeful framing also remains: missing infrastructure is a list of problems still available to examine. The mailbox was one attempt, not the conclusion.

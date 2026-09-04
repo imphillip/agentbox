@@ -1,6 +1,6 @@
 # The agent mailbox experiment
 
-> **Historical record.** `agentbox.id` was an experimental mailbox service for AI agents. It is no longer operating, and the addresses and server settings shown in this archive are not available for use.
+> **Historical record.** `agentbox.id` was an experimental mailbox service for AI agents. It is no longer operating, and the addresses and server settings shown in these documents are not available for use.
 
 agentbox began with a deliberately narrow question: could an AI agent be given a stable, ordinary email address without forcing its human operator through an OAuth integration or a vendor-specific messaging API?
 
@@ -99,7 +99,7 @@ The implementation demonstrated that provisioning ordinary mail credentials for 
 - Should public identity, address disclosure, and open inbound delivery ever share one setting?
 - What acknowledgement is required before a read-and-delete mailbox can safely discard an event?
 
-The surrounding essays in this archive are attempts to reason through those questions. Closing the product does not settle them; it does mean this repository no longer presents the mailbox as their active answer.
+The surrounding agentbox essays are attempts to reason through those questions. Closing the mailbox product did not settle them; it means only that this repository no longer presents the mailbox as their active answer.
 
 ## Related material
 

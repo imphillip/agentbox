@@ -36,14 +36,15 @@ export default defineConfig({
   rewrites: {
     'README.md': 'index.md',
     'background/README.md': 'background/index.md',
+    'research/README.md': 'research/index.md',
   },
 
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Essays', link: '/background/' },
+      { text: 'Research', link: '/research/' },
       { text: 'Mailbox experiment', link: '/mailbox' },
-      { text: 'Product retrospective', link: '/background/from-mailbox-to-agent-first' },
       { text: 'Protocols', link: 'https://github.com/imphillip/agentbox/tree/main/protocols' },
     ],
 
@@ -80,6 +81,18 @@ export default defineConfig({
             {
               text: 'From mailbox to directory to agent-first',
               link: '/background/from-mailbox-to-agent-first',
+            },
+          ],
+        },
+      ],
+      '/research/': [
+        {
+          text: 'Research notes',
+          items: [
+            { text: 'Overview', link: '/research/' },
+            {
+              text: 'Agent Runtime, Hosting, and Supplier Landscape',
+              link: '/research/agent-runtime-hosting-and-supplier-landscape',
             },
           ],
         },

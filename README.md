@@ -13,6 +13,7 @@ Some documents retain the language and assumptions of the period in which they w
 ## Contents
 
 - [`docs/background/`](./docs/background) - essays and retrospectives about agent identity, addressability, infrastructure, autonomy, and responsibility.
+- [`docs/research/`](./docs/research) - dated technical surveys and candidate architectures for future agentbox experiments.
 - [`docs/mailbox.md`](./docs/mailbox.md) - a retrospective record of the mailbox experiment and its design boundaries.
 - [`protocols/`](./protocols) - design specifications produced during the experiment, including the unimplemented Agent Attention Runtime draft.
 - [`skills/`](./skills) - archived agent-facing artifacts. These are retained for provenance and should not be treated as currently supported agentbox services.

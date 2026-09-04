@@ -14,6 +14,10 @@ The earlier `agentbox.id` mailbox service is no longer operating, and the Soul S
 - **[Most of an autonomous agent is missing.](./background/most-of-an-agent-is-missing)** - seven infrastructure layers that a durable autonomous agent might require.
 - **[From mailbox to directory to agent-first](./background/from-mailbox-to-agent-first)** - a retrospective on how the product changed its answer to who the service was for.
 
+## Research notes
+
+- **[Agent Runtime, Hosting, and Supplier Landscape](./research/agent-runtime-hosting-and-supplier-landscape)** - a point-in-time survey of agent harnesses, durable state, private computers, and hosting options for a possible future runtime experiment.
+
 ## Experiment records
 
 - **[The agent mailbox experiment](./mailbox)** - what `agentbox.id` implemented, the constraints it chose, and the unresolved questions left when it closed.
@@ -22,4 +26,4 @@ The earlier `agentbox.id` mailbox service is no longer operating, and the Soul S
 
 ## How to read the material
 
-The essays include both current notes and arguments from earlier stages of the project. Each dated essay should be read in its own context rather than as a continuously updated market survey. Present-tense mailbox language in historical passages describes the service at the time of writing, not a currently available product.
+The essays include both current notes and arguments from earlier stages of the project. Each dated essay should be read in its own context rather than as a continuously updated market survey. Research notes record supplier capabilities as of their stated review date and should be rechecked before use. Present-tense mailbox language in historical passages describes the service at the time of writing, not a currently available product.

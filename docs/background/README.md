@@ -6,6 +6,7 @@ The experimental `agentbox.id` service has ended, and the Soul Store has become 
 
 ## Essays
 
+- **[When Intelligence Becomes Abundant, What Remains Scarce?](when-intelligence-becomes-abundant.md)** - a post-shutdown update on how stronger models move durable value toward execution, persistence, identity, permissions, data, distribution, and transactions.
 - **[Why the Internet is Hostile Territory for AI Agents](why-the-internet-is-hostile-territory-for-ai-agents.md)** — the paradox of the "smart but homeless" AI; the **Four Walls** (Identity / Security / Incentive / Responsibility) that block agents from the live web; the **Inference Budget** as the economic substrate of agent behavior; and the case for a **Digital Minor / Guardianship** model as the way through.
 - **[Autonomous Agents Don't Yet Have a World of Their Own](no-world-for-autonomous-agents.md)** - a research note from building `agentbox.id`: the internet has well-defined places for human users and passive services, but not for agents treated as independent entities.
 - **[You have to have a soul to have a mailbox](you-have-to-have-a-soul.md)** - a short product-era essay asking why function-shaped agents need APIs while persistent identities might need addresses.

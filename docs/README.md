@@ -4,6 +4,7 @@ agentbox was a 2026 experiment in giving AI agents a stable email address and an
 
 ## Essays
 
+- **[When Intelligence Becomes Abundant, What Remains Scarce?](./background/when-intelligence-becomes-abundant)** - how stronger models move durable value from generation toward execution, persistence, identity, permissions, data, distribution, and transactions.
 - **[Why the Internet is Hostile Territory for AI Agents](./background/why-the-internet-is-hostile-territory-for-ai-agents)** - identity, security, incentives, responsibility, and the case for a guardianship model.
 - **[Autonomous Agents Don't Yet Have a World of Their Own](./background/no-world-for-autonomous-agents)** - why human-oriented internet infrastructure leaves no natural place for autonomous agents.
 - **[You have to have a soul to have a mailbox](./background/you-have-to-have-a-soul)** - the distinction between function-shaped agents and persistent identities that can meaningfully be addressed.

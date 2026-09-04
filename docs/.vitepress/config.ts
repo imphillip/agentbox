@@ -54,6 +54,10 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/background/' },
             {
+              text: 'When Intelligence Becomes Abundant, What Remains Scarce?',
+              link: '/background/when-intelligence-becomes-abundant',
+            },
+            {
               text: 'Why the Internet is Hostile Territory for AI Agents',
               link: '/background/why-the-internet-is-hostile-territory-for-ai-agents',
             },

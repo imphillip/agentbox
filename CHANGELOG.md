@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Updated the agent runtime research note with OpenAI Agents API and a GCP Compute Engine plus Hermes Agent product-form comparison.
 - Clarified agentbox as an ongoing exploration whose current public form is its essays and documentation.
 - Reworked the mailbox and Soul Store pages as historical records rather than active product guides.
 - Added historical context to essays, the AAR draft, and the archived `soul-loader` integration.

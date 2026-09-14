@@ -16,7 +16,7 @@ The earlier `agentbox.id` mailbox service is no longer operating, and the Soul S
 
 ## Research notes
 
-- **[Agent Runtime, Hosting, and Supplier Landscape](./research/agent-runtime-hosting-and-supplier-landscape)** - a point-in-time survey of agent harnesses, durable state, private computers, and hosting options for a possible future runtime experiment.
+- **[Agent Runtime, Hosting, and Supplier Landscape](./research/agent-runtime-hosting-and-supplier-landscape)** - a point-in-time comparison of managed agent sessions, self-hosted agent appliances, durable state, private computers, and hosting options for a possible future runtime experiment.
 
 ## Experiment records
 

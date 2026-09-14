@@ -4,4 +4,4 @@ Point-in-time technical surveys from the ongoing agentbox exploration. Unlike th
 
 ## Notes
 
-- **[Agent Runtime, Hosting, and Supplier Landscape](agent-runtime-hosting-and-supplier-landscape.md)** - a September 2026 survey of agent harnesses, durable state, private computers, and hosting options, followed by three possible proof-of-concept architectures.
+- **[Agent Runtime, Hosting, and Supplier Landscape](agent-runtime-hosting-and-supplier-landscape.md)** - a September 2026 survey of managed and self-hosted agent forms, including OpenAI Agents API, GCP plus Hermes Agent, durable state, private computers, and four possible proof-of-concept architectures.

@@ -1,6 +1,6 @@
 # Agent Runtime, Hosting, and Supplier Landscape
 
-> **Working research note v0.2 (updated September 14, 2026; first published September 4, 2026).** This is a point-in-time technical survey for the continuing agentbox exploration, informed by the earlier aClaw experiment. It maps options for a future runtime proof of concept; it is not a product announcement, procurement recommendation, or committed roadmap.
+> **Working research note v0.3 (updated September 24, 2026; first published September 4, 2026).** This is a point-in-time technical survey for the continuing agentbox exploration, informed by the earlier aClaw experiment. It maps options for a future runtime proof of concept; it is not a product announcement, procurement recommendation, or committed roadmap.
 
 The earlier aClaw experiment offered each user an independent OpenClaw or Hermes agent in an isolated container. That architecture was useful because it made the agent concrete: one user, one process environment, one filesystem, one place to work.
 
@@ -17,6 +17,12 @@ Model
 ```
 
 Each layer is changing at a different speed. Models improve quickly. Harnesses compete on orchestration and memory. Sandbox providers compete on isolation, persistence, wake time, and operational controls. A durable product should not confuse any one of those suppliers with the agent itself.
+
+## What changed in v0.3
+
+Meta's Muse adds a consumer-product reference for a personal agent with a dedicated cloud computer. Its separate Sentinel controls connector actions and network egress from outside the main agent's runtime. The noteworthy design is the enforceable boundary around the agent, not simply the presence of a second model. Muse is a complete Meta-operated product, not a hosting supplier agentbox can substitute into a proof of concept. Our [essay on Muse](../background/a-computer-for-the-agent.md) discusses its product implications in more detail.
+
+The current `agentbox-cloud` proof of concept also makes one product form less hypothetical: Hermes running in a Cloudflare Sandbox, with a Worker, Durable Object, D1, and R2 as its control plane. That experiment is distinct from the Cloudflare Agents framework discussed below. Its current security and recovery gaps should be part of the comparison, not hidden by the general strengths of its substrate.
 
 ## What changed in v0.2
 
@@ -106,6 +112,14 @@ This closely matches the idea of persistent identity paired with compute that sc
 
 The tradeoff is architectural concentration. Durable Objects, embedded storage, scheduling, workflows, browser execution, and deployment all reinforce one platform. That may be an excellent operational choice, but it should be made consciously because portability would require extracting several layers at once.
 
+### Meta Muse as a product reference
+
+Muse combines a personal agent, a dedicated Linux VM, memory and files, browser and terminal work, schedules, connected services, and a user interface for goals, activity, and permissions. Meta says each VM is the system of record for its user's data. Muse is useful here as a benchmark for the complete experience rather than as an available harness or infrastructure provider.
+
+Its security architecture also changes the comparison. The main agent works in an isolated runtime cell. Credential handling and built-in connectors run outside it, while a separate host-side Sentinel authorizes connector actions and network egress. Approval is delivered through the client independently of the agent conversation. A product claiming to give an agent a private computer should be evaluated on that authority boundary as well as on the computer itself.
+
+These are Meta's published design claims, not a conclusion that Muse is immune to prompt injection or client compromise. Meta says its current service can access VM data when necessary to operate it; a Confidential VM intended to restrict that access was still forthcoming at this review date. A separate Mac client vulnerability disclosed in September shows why clients and approval channels belong in the threat model too.
+
 ## Enterprise reference stacks
 
 ### Microsoft Agent Framework
@@ -187,6 +201,14 @@ The operational burden is equally concrete. agentbox would need to provision and
 
 Hermes memory and configuration should also be treated as an attached implementation until export and recovery have been tested. Installing a persistent agent on a persistent VM does not, by itself, separate the agent's identity from that machine.
 
+### Cloudflare Sandbox + Hermes Agent
+
+The `agentbox-cloud` proof of concept uses a Cloudflare Worker and per-agent Durable Object to provision a Cloudflare Sandbox running Hermes. D1 indexes ownership, and an explicit backup action archives Hermes data and the workspace to R2. The Sandbox supplies an isolated Linux execution environment; the product supplies identity, lifecycle operations, and a dashboard.
+
+This is a practical integrated form, but its present implementation does not yet meet the persistence and authority contract of a finished personal agent. Backups are manual and restore is not implemented. Model and Hermes API keys are passed into Sandbox environment variables for the runtime to use. There is no separate credential broker, outbound policy service, or user approval path comparable to Muse's Sentinel. Cloudflare's own Sandbox guidance distinguishes VM isolation from application authorization and notes that code inside a sandbox can read credentials supplied directly to its environment.
+
+It is therefore a useful hands-on test of provisioning, service exposure, and state recovery. The next milestone is to prove restoration on a fresh environment and to define which actions and credentials must be controlled outside the agent runtime.
+
 ## Product forms, not just suppliers
 
 The supplier list becomes easier to reason about when the components are grouped into product forms:
@@ -196,8 +218,10 @@ The supplier list becomes easier to reason about when the components are grouped
 | Agents API + OpenAI-hosted sandbox | Managed harness, session, model loop, temporary computer | Product identity, policy, external events, durable product state | Fastest path, but the strongest OpenAI dependency and no permanent computer |
 | Agents API + self-hosted environment | Managed harness and session; agentbox-selected computer | Product identity plus computer provisioning, recovery, and storage | Managed orchestration with infrastructure choice, but split operational responsibility |
 | GCP VM + Hermes Agent | Private computer plus self-hosted harness, tools, memory, and channels | Fleet control, identity boundary, security, backups, upgrades, billing | Maximum legibility and control, but the largest operating surface |
+| Cloudflare Sandbox + Hermes Agent | Isolated computer, Hermes runtime, and an application-operated control plane | State restoration, credential boundary, action policy, approvals, fleet operations | Concrete integrated PoC, with substantial product-level security and recovery work remaining |
 | Letta + replaceable sandbox | Persistent-agent and memory layer plus selected execution | Product identity boundary and provider lifecycle | Strong state model, with migration risk if Letta becomes canonical |
 | Cloudflare Agents | Durable runtime, state, schedules, connections, and adjacent execution | Product semantics and export strategy | Compact operating model, with several layers concentrated on one platform |
+| Meta Muse | Complete personal agent, dedicated VM, connected services, permissions, and user experience | No component is offered here as an agentbox backend | Consumer-product benchmark; full agent portability is not publicly demonstrated |
 
 These are not interchangeable hosting plans. They place product responsibility at different layers. A useful proof of concept should compare the amount of product behavior each form supplies, the amount agentbox must operate, and how much state can be moved out later.
 
@@ -211,12 +235,14 @@ These are not interchangeable hosting plans. They place product responsibility a
 | Persistent memory and state | agentbox-owned schema, Letta | Cloudflare embedded state |
 | Durable runtime | Cloudflare Agents | self-operated control plane |
 | Agent computer | GCP Compute Engine, Blaxel, Daytona | Fly Sprites |
+| Integrated agent appliance PoC | Cloudflare Sandbox + Hermes Agent | GCP VM + Hermes Agent |
 | Task-scoped execution | E2B | Modal |
 | Enterprise reference | AWS AgentCore | Microsoft Agent Framework |
+| Consumer-product reference | Meta Muse | Not an infrastructure supplier |
 
 This table is not a ranking. It identifies a small set worth testing and a wider set useful for comparison.
 
-## Four proof-of-concept architectures
+## Five proof-of-concept architectures
 
 ### A. Open and replaceable
 
@@ -230,7 +256,7 @@ agentbox identity, policy, lifecycle, and billing
 
 agentbox keeps the canonical agent record, maps it to an OpenAI agent and session, and exposes a narrow environment interface: create, connect, wake, execute, checkpoint, stop, destroy, attach storage, and inspect usage.
 
-This is the preferred starting point because it tests the central thesis directly while avoiding the need to build the entire harness. Can the same agent identity and session move between two computers without changing what the user believes the agent is?
+This is a clean test of the central thesis while avoiding the need to build the entire harness. Can the same agent identity and session move between two computers without changing what the user believes the agent is?
 
 The cost is a divided control plane. OpenAI owns the harness and session; agentbox owns the computer lifecycle and must reconcile both systems. Scheduling, external event delivery, durable product state, and migrations also remain product responsibilities.
 
@@ -274,6 +300,19 @@ This option tests the most concrete expression of “give an AI a private comput
 
 The experiment should not stop when the agent answers a message. It must include automated provisioning, secure bootstrap, stop and start behavior, health checks, upgrades, backup and restore, model switching, and reconstruction of the same agent on a fresh VM. That last exercise determines whether the agent is genuinely portable or merely a carefully maintained server.
 
+### E. Cloudflare Sandbox with Hermes
+
+```text
+agentbox-cloud Worker + account index
+  -> per-agent Durable Object lifecycle
+  -> Cloudflare Sandbox running Hermes
+  -> R2 backup of agent data and workspace
+```
+
+This is the active code-level proof of concept; the real Cloudflare runtime has not yet passed end-to-end integration testing. It tests whether a managed container substrate can support a ready-to-use agent computer with a small control plane. It should be judged against its actual implementation: a backup button is not yet recovery, Worker secrets injected into the Sandbox are visible to code in that environment, and account authentication does not govern the agent's subsequent network actions.
+
+The next test should restore the same agent on fresh compute, then add a narrowly scoped action and credential boundary outside Hermes. Muse supplies a demanding reference for the second test without prescribing its exact implementation.
+
 ## Evaluation criteria
 
 The first round should test behavior, not feature-list parity.
@@ -287,6 +326,14 @@ The first round should test behavior, not feature-list parity.
 - Can context be compacted without silently changing durable state?
 - Can tools, MCP servers, and credentials be granted and revoked independently?
 - Are human approval, cancellation, retry, and audit trails first-class?
+
+### Authority and safety
+
+- Can agent-generated code reach the network without passing a policy decision outside its runtime?
+- Can the agent read a real credential, or does a broker supply it only for an approved action?
+- Are approvals bound to the specific action, destination, and duration, and delivered outside the agent conversation?
+- Can the user inspect and revoke permissions independently of the agent's own memory or instructions?
+- Are browser sessions, local clients, and exposed services included in the same threat model?
 
 ### Computer lifecycle
 
@@ -338,6 +385,8 @@ That is the layer agentbox should understand before it decides whether there is 
 
 The two newly compared forms expose the choice clearly. OpenAI Agents API lets agentbox start with a thin product layer above a managed harness. GCP plus Hermes starts with a thick, inspectable agent appliance under an agentbox control plane. Neither answer is universally better. The former optimizes for speed and managed orchestration; the latter optimizes for ownership, portability of model access, and conventional systems control.
 
+Muse shows what the assembled consumer experience can look like. Its dedicated computer supports work over time, while its separate authority governs what the agent may do with access to the user's wider digital life. The `agentbox-cloud` PoC can test the computer and control-plane parts now; the permission and recovery parts remain explicit work.
+
 The strategically useful boundary sits above both:
 
 ```text
@@ -353,7 +402,7 @@ The next agentbox runtime, if there is one, should be modular from the beginning
 
 Models should be replaceable. Agent harnesses should be replaceable. Computers and hosting suppliers should be replaceable. Durable identity, permissions, history, lifecycle, and the user relationship should remain under the product's control.
 
-The first supplier set worth hands-on evaluation is deliberately small:
+The supplier set worth hands-on evaluation remains deliberately small:
 
 1. OpenAI Agents API for a managed GPT-6 Astra harness and durable session;
 2. GCP Compute Engine plus Hermes Agent for a self-hosted agent appliance;
@@ -363,13 +412,15 @@ The first supplier set worth hands-on evaluation is deliberately small:
 
 The OpenAI Agents SDK remains the lower-level control case when agentbox needs to own the loop. AWS AgentCore and Microsoft Agent Framework provide enterprise reference points. E2B and Modal remain useful for task-scoped execution. Fly Sprites is worth adding when the experiment specifically tests the promise of a persistent personal Linux computer.
 
+Cloudflare Sandbox plus Hermes is now an active integrated PoC, distinct from Cloudflare Agents. Muse is a consumer-product reference rather than an infrastructure candidate. Both sharpen the acceptance criteria: continuity must survive environment replacement, and permission must be enforced outside the agent's own execution cell.
+
 The central thesis is unchanged by any supplier choice:
 
 > An agent is not a model, a process, or a container. It is the persistent identity and state that can continue across all three.
 
 ## Sources and freshness
 
-Capabilities in this note were checked against official documentation on September 14, 2026. They should be rechecked before an implementation or purchasing decision.
+The earlier supplier survey was checked on September 14, 2026. Muse and Cloudflare Sandbox claims were checked against official documentation on September 24, 2026. All capabilities should be rechecked before an implementation or purchasing decision.
 
 - [OpenAI: GPT-6 Astra model guide](https://developers.openai.com/api/docs/guides/latest-model)
 - [OpenAI: GPT-6 Astra model reference](https://developers.openai.com/api/docs/models/gpt-6-astra)
@@ -384,6 +435,9 @@ Capabilities in this note were checked against official documentation on Septemb
 - [Letta documentation](https://docs.letta.com/)
 - [Letta Agents API](https://docs.letta.com/api/resources/agents)
 - [Cloudflare Agents](https://developers.cloudflare.com/agents/)
+- [Cloudflare Sandbox security model](https://developers.cloudflare.com/sandbox/concepts/security/)
+- [Cloudflare Sandbox environment variables](https://developers.cloudflare.com/sandbox/configuration/environment-variables/)
+- [Cloudflare Sandbox backup and restore](https://developers.cloudflare.com/sandbox/guides/backup-restore/)
 - [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/)
 - [Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html)
 - [Blaxel Sandboxes](https://docs.blaxel.ai/Sandboxes/Overview)
@@ -397,3 +451,7 @@ Capabilities in this note were checked against official documentation on Septemb
 - [Google Cloud: Persistent Disk](https://docs.cloud.google.com/compute/docs/disks/persistent-disks)
 - [Hermes Agent documentation](https://hermes-agent.nousresearch.com/docs/)
 - [NousResearch: Hermes Agent](https://github.com/NousResearch/hermes-agent)
+- [Meta: Introducing Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/)
+- [Meta AI Research: How We Built Safety Into Muse](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse)
+- [Meta: How We Designed Muse](https://introducing.muse.ai/)
+- [Patrick Wardle: Muse Mac client proof of concept](https://github.com/pwardle/not-a-mused)

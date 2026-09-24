@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Expanded the runtime research note with Meta Muse, the Cloudflare Sandbox plus Hermes proof of concept, and enforceable permission-boundary criteria.
 - Updated the agent runtime research note with OpenAI Agents API and a GCP Compute Engine plus Hermes Agent product-form comparison.
 - Clarified agentbox as an ongoing exploration whose current public form is its essays and documentation.
 - Reworked the mailbox and Soul Store pages as historical records rather than active product guides.

@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added an essay on Meta Muse's dedicated cloud computer, independent permission authority, and implications for agentbox's identity research.
 - Added a research note on agent runtime layers, hosting suppliers, and candidate proof-of-concept architectures.
 
 ### Changed

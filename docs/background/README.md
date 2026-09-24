@@ -6,6 +6,7 @@ The earlier `agentbox.id` mailbox service has ended, and the Soul Store has beco
 
 ## Essays
 
+- **[A Computer for the Agent, a Boundary Around Its Power](a-computer-for-the-agent.md)** - Meta's Muse as a new test of persistent cloud computers, independent permission controls, and the identity that should survive a change of runtime.
 - **[When Intelligence Becomes Abundant, What Remains Scarce?](when-intelligence-becomes-abundant.md)** - a post-mailbox update on how stronger models move durable value toward execution, persistence, identity, permissions, data, distribution, and transactions.
 - **[Why the Internet is Hostile Territory for AI Agents](why-the-internet-is-hostile-territory-for-ai-agents.md)** — the paradox of the "smart but homeless" AI; the **Four Walls** (Identity / Security / Incentive / Responsibility) that block agents from the live web; the **Inference Budget** as the economic substrate of agent behavior; and the case for a **Digital Minor / Guardianship** model as the way through.
 - **[Autonomous Agents Don't Yet Have a World of Their Own](no-world-for-autonomous-agents.md)** - a research note from building `agentbox.id`: the internet has well-defined places for human users and passive services, but not for agents treated as independent entities.

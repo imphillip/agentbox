@@ -55,6 +55,10 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/background/' },
             {
+              text: 'A Computer for the Agent, a Boundary Around Its Power',
+              link: '/background/a-computer-for-the-agent',
+            },
+            {
               text: 'When Intelligence Becomes Abundant, What Remains Scarce?',
               link: '/background/when-intelligence-becomes-abundant',
             },

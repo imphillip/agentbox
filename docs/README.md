@@ -6,6 +6,7 @@ The earlier `agentbox.id` mailbox service is no longer operating, and the Soul S
 
 ## Essays
 
+- **[Agents Deserve Their Own Computers](./background/agents-deserve-their-own-computers)** - the case for a persistent computer where agents use existing software, people can step in, and work accumulates across sessions.
 - **[A Computer for the Agent, a Boundary Around Its Power](./background/a-computer-for-the-agent)** - what Meta's Muse suggests about persistent cloud computers, independent permission controls, and portable agent identity.
 - **[When Intelligence Becomes Abundant, What Remains Scarce?](./background/when-intelligence-becomes-abundant)** - how stronger models move durable value from generation toward execution, persistence, identity, permissions, data, distribution, and transactions.
 - **[Why the Internet is Hostile Territory for AI Agents](./background/why-the-internet-is-hostile-territory-for-ai-agents)** - identity, security, incentives, responsibility, and the case for a guardianship model.

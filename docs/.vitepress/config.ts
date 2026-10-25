@@ -55,6 +55,10 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/background/' },
             {
+              text: 'Agents Deserve Their Own Computers',
+              link: '/background/agents-deserve-their-own-computers',
+            },
+            {
               text: 'A Computer for the Agent, a Boundary Around Its Power',
               link: '/background/a-computer-for-the-agent',
             },

@@ -19,6 +19,7 @@ The earlier `agentbox.id` mailbox service is no longer operating, and the Soul S
 
 ## Research notes
 
+- **[2026 Agent Market Review: Working Research Log](./research/2026-agent-market-review-research-log)** - a dated source collection, product timeline, and open questions in preparation for the year-end review.
 - **[Agent Runtime, Hosting, and Supplier Landscape](./research/agent-runtime-hosting-and-supplier-landscape)** - a point-in-time comparison of agent product forms, including the current Cloudflare Sandbox plus Hermes experiment and Meta Muse as a consumer-product reference.
 
 ## Experiment records

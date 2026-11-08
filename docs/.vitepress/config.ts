@@ -103,6 +103,10 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/research/' },
             {
+              text: '2026 Agent Market Review: Working Research Log',
+              link: '/research/2026-agent-market-review-research-log',
+            },
+            {
               text: 'Agent Runtime, Hosting, and Supplier Landscape',
               link: '/research/agent-runtime-hosting-and-supplier-landscape',
             },

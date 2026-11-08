@@ -8,7 +8,7 @@ The next question is commercial. What, exactly, would someone pay for?
 
 Recent services offer several answers. One sells a configured software environment. Another organizes people and agents around shared work. Others supply rented machines, expose real devices through an API, or keep a computer the customer already owns online. These choices assign costs and responsibilities to different parties.
 
-I am involved in one of these attempts: I am working with a friend on [NetworkFlows](https://networkflows.com/en), a Mac mini colocation service. That participation is part of why I am examining this market. The observations below come from public product pages and documentation; they are not results from comparative hands-on testing. Prices are snapshots from November 9 and cover different bundles.
+The observations below come from public product pages and documentation; they are not results from comparative hands-on testing. Prices are snapshots from November 9 and cover different bundles.
 
 ## Five things a customer can buy
 
@@ -72,9 +72,9 @@ This is a deliberately limited service boundary. A customer can retain an existi
 
 That makes the model lighter in one particular sense: the provider need not fund every customer's computer or maintain their chosen agent stack. The customer takes on hardware cost and software administration. Whether that trade is attractive depends on duration, configuration, support needs, and the value of retaining the machine.
 
-For me, this is a way to test one part of the agentbox idea with a narrow commitment. A customer can change models or agent software while keeping their computer. Moving or retrieving it remains a physical process, and continuity across that move still needs preparation.
+Colocation offers a way to test one part of the agentbox idea with a narrow service scope. A customer can change models or agent software while keeping their computer. Moving or retrieving it remains a physical process, and continuity across that move still needs preparation.
 
-Our [preparation guide](https://networkflows.com/en/prepare) asks customers to test remote access after sign-out, sleep, and restart, and to maintain their own backups and recovery path. Those details are central to the experiment. A successful remote login on delivery day is only the beginning of a useful long-term environment.
+NetworkFlows' [preparation guide](https://networkflows.com/en/prepare) asks customers to test remote access after sign-out, sleep, and restart, and to maintain their own backups and recovery path. Those details are central to making colocation useful for agents. A successful remote login on delivery day is only the beginning of a useful long-term environment.
 
 ## What gets lighter, and for whom?
 
@@ -106,4 +106,4 @@ The question I want to keep testing is whether we can give that work a dependabl
 
 ## Sources and scope
 
-Product descriptions and prices were reviewed on November 9, 2026. Links above point to the providers' own pages and documentation. The examples illustrate commercial approaches; they are neither an exhaustive market survey nor evidence of corporate relationships between the services. I participate in NetworkFlows, as disclosed at the start. This essay follows [*Agents Deserve Their Own Computers*](./agents-deserve-their-own-computers.md).
+Product descriptions and prices were reviewed on November 9, 2026. Links above point to the providers' own pages and documentation. The examples illustrate commercial approaches rather than an exhaustive market survey. This essay follows [*Agents Deserve Their Own Computers*](./agents-deserve-their-own-computers.md).

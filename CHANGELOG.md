@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added a follow-up essay comparing five business models for agent computing environments, with disclosure of the author's involvement in NetworkFlows.
+- Added a follow-up essay comparing five business models for agent computing environments, including NetworkFlows as a colocation example.
 - Added an essay on persistent computers for agents, existing desktop software, human handoffs, and continuity across sessions and runtimes.
 - Added an essay on Meta Muse's dedicated cloud computer, independent permission authority, and implications for agentbox's identity research.
 - Added a research note on agent runtime layers, hosting suppliers, and candidate proof-of-concept architectures.

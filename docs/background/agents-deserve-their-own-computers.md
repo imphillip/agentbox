@@ -80,6 +80,8 @@ For some kinds of work, I expect the answer to be a persistent computer. Its age
 
 ---
 
+Continue with [*A Computer for Your Agent: Five Ways to Build the Business*](./a-computer-for-your-agent-five-ways-to-build-the-business.md), a November 2026 look at how services package the working environment and divide its costs and responsibilities.
+
 ## References
 
 - Xcode, [Claude Team seats and managed Mac environment](https://xcode.sg/) and [service terms](https://xcode.sg/terms), reviewed October 26, 2026.

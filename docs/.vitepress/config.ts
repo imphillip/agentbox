@@ -55,6 +55,10 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/background/' },
             {
+              text: 'A Computer for Your Agent: Five Ways to Build the Business',
+              link: '/background/a-computer-for-your-agent-five-ways-to-build-the-business',
+            },
+            {
               text: 'Agents Deserve Their Own Computers',
               link: '/background/agents-deserve-their-own-computers',
             },

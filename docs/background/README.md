@@ -6,6 +6,7 @@ The earlier `agentbox.id` mailbox service has ended, and the Soul Store has beco
 
 ## Essays
 
+- **[A Computer for Your Agent: Five Ways to Build the Business](a-computer-for-your-agent-five-ways-to-build-the-business.md)** - five commercial approaches to agent computing environments, and how they divide ownership, setup, control, and operational responsibility.
 - **[Agents Deserve Their Own Computers](agents-deserve-their-own-computers.md)** - why existing software, human intervention, and continuity make a persistent computer a candidate home for an agent's work.
 - **[A Computer for the Agent, a Boundary Around Its Power](a-computer-for-the-agent.md)** - Meta's Muse as a new test of persistent cloud computers, independent permission controls, and the identity that should survive a change of runtime.
 - **[When Intelligence Becomes Abundant, What Remains Scarce?](when-intelligence-becomes-abundant.md)** - a post-mailbox update on how stronger models move durable value toward execution, persistence, identity, permissions, data, distribution, and transactions.
